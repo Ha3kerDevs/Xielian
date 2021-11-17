@@ -11,14 +11,7 @@ class Utility(commands.Cog, name="<a:utility:831769452344639498>\u2800Utility"):
   def __init__(self, client):
     self.client = client
  
-  @commands.has_any_role(
-    822428355554312212,
-    831149093346476062,
-    829605227833065472,
-    822728446059741218,
-    823814683973779488,
-    825584517963055174
-  )
+  #@commands.has_any_role()
   @commands.cooldown(1, 6, commands.BucketType.guild)
   @commands.guild_only()
   @commands.command()
