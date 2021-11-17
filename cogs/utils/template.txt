@@ -1,0 +1,15 @@
+import discord
+import datetime
+from cogs.utils import checks, config
+from discord.ext import commands
+from discord.utils import get
+
+
+class NAME(commands.Cog, name="NAME"):
+  
+  def __init__(self, client):
+    self.client = client
+
+
+def setup(client):
+  client.add_cog(NAME(client))
