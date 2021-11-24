@@ -1,7 +1,7 @@
 import os
 import discord
 import datetime
-#from dotenv import load_dotenv
+from dotenv import load_dotenv
 from discord.ext.commands import Bot as client
 
 prefix = "su!"
@@ -24,8 +24,8 @@ class Client(client):
   def run(self, verison):
     self.version = verison
 
-    #load_dotenv()
-    TOKEN = os.environ("T0KEN")
+    load_dotenv()
+    TOKEN = os.getenv("T0KEN")
     super().run(TOKEN, reconnect=True)
 
   async def on_ready(self):
