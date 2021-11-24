@@ -25,7 +25,7 @@ class Client(client):
     self.version = verison
 
     load_dotenv()
-    TOKEN = os.getenv("T0KEN")
+    TOKEN = os.environ("T0KEN")
     super().run(TOKEN, reconnect=True)
 
   async def on_ready(self):
