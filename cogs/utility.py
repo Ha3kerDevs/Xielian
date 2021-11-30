@@ -98,7 +98,7 @@ class Utility(commands.Cog, name="Utility"):
       embed = discord.Embed(title="Time Difference", description=f"Time: {answer}", color=0xf8c7c7)
       await ctx.send(embed=embed)
 
-  @commands.command(name='timedif2', help='For staff only.', aliases=['td'])
+  @commands.command(name='timedif2', help='For staff onlydsagdsyudsdsauagtyda.')
   async def timedif2(self, ctx, id1, id2):
       try:
         id1_int = int(id1)
