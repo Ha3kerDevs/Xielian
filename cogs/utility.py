@@ -46,7 +46,7 @@ class Utility(commands.Cog, name="<a:utility:831769452344639498>\u2800Utility"):
     await ctx.reply(embed=embed, allowed_mentions=discord.AllowedMentions().none())
   
   @commands.command(name='timedif', help='', aliases=['snowflake', 'timediff'])
-  async def timedif(ctx, id1, id2):
+  async def timedif(self, ctx, id1: int, id2: int):
       try:
         time1 = discord.utils.snowflake_time(int(id1))
         time2 = discord.utils.snowflake_time(int(id2))
