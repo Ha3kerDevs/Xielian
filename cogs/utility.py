@@ -31,7 +31,7 @@ class Utility(commands.Cog, name="Utility"):
   )
   @commands.cooldown(1, 6, commands.BucketType.guild)
   @commands.guild_only()
-  @commands.command(help="Nukes a channel. For staff only.")
+  @commands.command(help="Nukes a channel. For staff only.\n `s!nuke`")
   async def nuke(self, ctx):
     exe_start = time.time()
     pos = ctx.channel.position
@@ -46,7 +46,6 @@ class Utility(commands.Cog, name="Utility"):
   @commands.command(
     name="membercount",
     help="check how many members in Stellaric.",
-    usage=' ',
     aliases=["mc"]
   )
   async def _membercount(self, ctx):
@@ -68,7 +67,11 @@ class Utility(commands.Cog, name="Utility"):
     822727647087165461
   )
   @commands.guild_only()
-  @commands.command(name='timedif', help='For staff only.', aliases=['td'])
+  @commands.command(
+    name='timedif',
+    help='For staff only.\n `s!timedif <id1> <id2>`',
+    aliases=['td']
+  )
   async def timedif(self, ctx, id1, id2):
       try:
         id1 = int(id1)
@@ -82,29 +85,11 @@ class Utility(commands.Cog, name="Utility"):
       
       ts_diff = time2 - time1
       secs = abs(ts_diff.total_seconds())
-      #days,secs=divmod(secs,secs_per_day:=60*60*24)
-      #hrs,secs=divmod(secs,secs_per_hr:=60*60)
-      #mins,secs=divmod(secs,secs_per_min:=60)
-      #secs=round(secs, 2)
       answer='{} secs'.format(secs)
-      
-      #if secs > 60:
-      #    answer='{} mins and {} secs'.format(int(mins),secs)
-      #    if mins > 60:
-      #        answer='{} hrs, {} mins and {} secs'.format(int(hrs),int(mins),secs)
-      #        if hrs > 24:
-      #            answer='{} days, {} hrs, {} mins and {} secs'.format(int(days),int(hrs),int(mins),secs)
       
       embed = discord.Embed(title="Time Difference", description=f"Time: {answer}", color=0xf8c7c7)
       await ctx.send(embed=embed)
 
-  @commands.command()
-  async def snowflakes(self, ctx, msgid1 : discord.Message, msgid2 : discord.Message):
-      msgtime1 = msgid1.created_at()
-      msgtime2 = msgid2.created_at()
-      result = (msgtime2 - msgtime1).seconds
-      embedVar = discord.Embed(title="Snowflakes", description=f"Time difference of {msgid1} and {msgid2} is **`{result}`**")
-      await ctx.send(embed=embedVar)
 
 
 def setup(bot: StellaricBot):
