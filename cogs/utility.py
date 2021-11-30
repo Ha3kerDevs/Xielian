@@ -14,7 +14,10 @@ from setup_bot import StellaricBot
 # 822727647087165461 = Head Admin
 
 # <a:utility:831769452344639498>\u2800
-class Utility(commands.Cog, name="Utility", help="Mostly staff purpose."):
+class Utility(commands.Cog, name="Utility"):
+  """
+  Utility commands idk :p
+  """
   
   def __init__(self, bot: StellaricBot):
     self.bot = bot
