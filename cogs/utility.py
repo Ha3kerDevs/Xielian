@@ -52,7 +52,7 @@ class Utility(commands.Cog, name="<a:utility:831769452344639498>\u2800Utility"):
         time2 = discord.utils.snowflake_time(int(id2))
           
       except:
-          await ctx.reply("Check your message ID's! They are incorrect!")
+          await ctx.send("Check your message ID's! They are incorrect!")
           
       time1 = msg1.created_at
       time2 = msg2.created_at
