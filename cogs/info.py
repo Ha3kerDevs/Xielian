@@ -7,7 +7,9 @@ from typing import Optional
 from setup_bot import StellaricBot
 
 
-class Info(commands.Cog, name="<:infooo:831769439543623712>\u2800Information"):
+# <:infooo:831769439543623712>\u2800
+
+class Info(commands.Cog, name="Information"):
   
   def __init__(self, bot: StellaricBot):
     self.bot = bot

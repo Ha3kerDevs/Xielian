@@ -6,7 +6,9 @@ from cogs.utils import checks
 from discord.ext import commands
 from setup_bot import StellaricBot
   
-class Fun(commands.Cog, name="<:banaa:831766861615333387>\u2800Fun"):
+# <:banaa:831766861615333387>\u2800
+
+class Fun(commands.Cog, name="Fun"):
   
   def __init__(self, bot: StellaricBot):
     self.bot = bot

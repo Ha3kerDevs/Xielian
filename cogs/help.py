@@ -41,7 +41,7 @@ class Help(commands.Cog):
         if not input:
 
             # starting to build embed
-            emb = discord.Embed(title='Commands and modules', color=discord.Color.blue(),
+            emb = discord.Embed(title='Commands and modules', color=0xf8c7c7,
                                 description=f'Use `{prefix}help <module>` to gain more information about that module\n')
 
             # iterating trough cogs, gathering descriptions
@@ -79,7 +79,7 @@ class Help(commands.Cog):
 
                     # making title - getting description from doc-string below class
                     emb = discord.Embed(title=f'{cog} - Commands', description=self.bot.cogs[cog].__doc__,
-                                        color=discord.Color.green())
+                                        color=0xf8c7c7)
 
                     # getting commands from cog
                     for command in self.bot.get_cog(cog).get_commands():
