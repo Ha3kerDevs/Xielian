@@ -5,6 +5,16 @@ os.environ["JISHAKU_HIDE"] = "True"
 os.environ["JISHAKU_NO_UNDERSCORE"] = "True"
 os.environ["JISHAKU_NO_DM_TRACEBACK"] = "True"
 
+intents = discord.Intents(
+    bans=True,
+    emojis=True,
+    guilds=True,
+    messages=True,
+    members=True,
+    reactions=True,
+    webhooks=True,
+    voice_states=True
+    )
 
 async def get_prefix(bot: "Stellaric", message: discord.Message):
     prefixes = ["s!"]
@@ -18,7 +28,7 @@ class StellaricBot(commands.Bot):
             command_prefix=get_prefix,
             case_insensitive=True,
             allowed_mentions=allowed_mentions,
-            activity=activity,
+            #activity=activity,
             intents=intents,
         )
         self.cogs_extensions = [
