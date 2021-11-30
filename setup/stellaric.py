@@ -6,14 +6,9 @@ os.environ["JISHAKU_NO_UNDERSCORE"] = "True"
 os.environ["JISHAKU_NO_DM_TRACEBACK"] = "True"
 
 
-
-
-
-
 async def get_prefix(bot: "Stellaric", message: discord.Message):
     prefixes = ["s!"]
     return prefixes
-
   
   
 class StellaricBot(commands.Bot):
@@ -26,7 +21,7 @@ class StellaricBot(commands.Bot):
             activity=activity,
             intents=intents,
         )
-        self.cogs = [
+        self.cogs_extensions = [
             "cogs.event",
             "cogs.help",
             "cogs.utility",
@@ -34,4 +29,24 @@ class StellaricBot(commands.Bot):
             "cogs.info"
         ]
         self.loop.create_task(self.load_extensions())
+
+    async def load_extensions(self):
+        for ext in self.cogs_extensions:
+            try:
+                self.load_extension(ext)
+            except commands.ExtensionError as error:
+                print(error)
+        await self.wait_until_ready()
+    
+    async def on_ready(self):
+        print("Bot online.")
+    
+    def run(self):
+
+        load_dotenv()
+        TOKEN = os.getenv("T0KEN")
+        super().run(token, reconnect=True)
         
+    async def close(self):
+        await super().close()
+        print("Closed bot.")
