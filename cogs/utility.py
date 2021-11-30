@@ -83,7 +83,7 @@ class Utility(commands.Cog, name="<a:utility:831769452344639498>\u2800Utility"):
 
   #@commands.has_any_role()
   @commands.command()
-  async def timedif(ctx, obj: discord.Object):
+  async def timedif(self, ctx, obj: discord.Object):
     await ctx.send(pretty_date(obj.created_at))
 
 
