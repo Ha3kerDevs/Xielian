@@ -98,21 +98,13 @@ class Utility(commands.Cog, name="Utility"):
       embed = discord.Embed(title="Time Difference", description=f"Time: {answer}", color=0xf8c7c7)
       await ctx.send(embed=embed)
 
-  @commands.command(name='timedif2', help='For staff onlydsagdsyudsdsauagtyda.')
-  async def timedif2(self, ctx, id1, id2):
-      try:
-        id1_int = int(id1)
-        id2_int = int(id2)
-          
-      except:
-          await ctx.send("Check your message ID's! They are incorrect!")
-
-      msg1 = id1_int.created_at()
-      msg2 = id2_int.created_at()
-      result = (msg2 - msg1).seconds
-      
-      embed = discord.Embed(title="Time Difference", description=f"Time: {result}", color=0xf8c7c7)
-      await ctx.send(embed=embed)
+  @commands.command()
+  async def snowflakes(self, ctx, msgid1 : discord.Message, msgid2 : discord.Message):
+      msgtime1 = msgid1.created_at()
+      msgtime2 = msgid2.created_at()
+      result = (msgtime2 - msgtime1).seconds
+      embedVar = discord.Embed(title="Snowflakes", description=f"Time difference of {msgid1} and {msgid2} is **`{result}`**")
+      await ctx.send(embed=embedVar)
 
 
 def setup(bot: StellaricBot):
