@@ -57,8 +57,8 @@ class StellaricBot(commands.Bot):
     def run(self):
 
         load_dotenv()
-        TOKEN = os.getenv("T0KEN")
-        super().run(token, reconnect=True)
+        bot_token = os.getenv("T0KEN")
+        super().run(bot_token, reconnect=True)
         
     async def close(self):
         await super().close()
