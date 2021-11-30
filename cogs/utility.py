@@ -90,10 +90,10 @@ class Utility(commands.Cog, name="Utility"):
       
       if secs > 60:
           answer='{} mins and {} secs'.format(int(mins),secs)
-          if mins > 60:
-              answer='{} hrs, {} mins and {} secs'.format(int(hrs),int(mins),secs)
-              if hrs > 24:
-                  answer='{} days, {} hrs, {} mins and {} secs'.format(int(days),int(hrs),int(mins),secs)
+      if mins > 60:
+          answer='{} hrs, {} mins and {} secs'.format(int(hrs),int(mins),secs)
+      if hrs > 24:
+          answer='{} days, {} hrs, {} mins and {} secs'.format(int(days),int(hrs),int(mins),secs)
       
       embed = discord.Embed(title="Time Difference", description=f"Time: {answer}", color=0xf8c7c7)
       await ctx.send(embed=embed)
