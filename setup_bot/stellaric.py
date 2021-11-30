@@ -21,6 +21,7 @@ async def get_prefix(bot: "Stellaric", message: discord.Message):
     prefixes = ["s!"]
     return prefixes
   
+allowed_mentions = discord.AllowedMentions.none()
   
 class StellaricBot(commands.Bot):
     def __init__(self, **kwargs):
