@@ -1,5 +1,6 @@
 import discord
 import os
+from discord.ext import commands
 
 os.environ["JISHAKU_HIDE"] = "True"
 os.environ["JISHAKU_NO_UNDERSCORE"] = "True"
