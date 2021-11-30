@@ -85,7 +85,7 @@ class Utility(commands.Cog, name="<a:utility:831769452344639498>\u2800Utility"):
               if hrs > 24:
                   answer='{} days, {} hrs, {} mins and {} secs'.format(int(days),int(hrs),int(mins),secs)
       
-      embed = discord.Embed(title="**Time Difference**", description=f"Time: {answer}")
+      embed = discord.Embed(title="Time Difference", description=f"Time: {answer}", color=0xf8c7c7)
       await ctx.send(embed=embed)
 
 
