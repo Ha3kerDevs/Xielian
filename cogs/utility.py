@@ -70,30 +70,30 @@ class Utility(commands.Cog, name="Utility"):
   @commands.guild_only()
   @commands.command(name='timedif', help='For staff only.', aliases=['td'])
   async def timedif(self, ctx, id1, id2):
-      try:
-        id1 = int(id1)
-        id2 = int(id2)
+    try:
+      id1 = int(id1)
+      id2 = int(id2)
           
-      except:
-          await ctx.send("Check your message ID's! They are incorrect!")
+    except:
+      await ctx.send("Check your message ID's! They are incorrect!")
           
-      time1 = discord.utils.snowflake_time(int(id1))
-      time2 = discord.utils.snowflake_time(int(id2))
+    time1 = discord.utils.snowflake_time(int(id1))
+    time2 = discord.utils.snowflake_time(int(id2))
       
-      ts_diff = time2 - time1
-      secs = abs(ts_diff.total_seconds())
-      days,secs=divmod(secs,secs_per_day:=60*60*24)
-      hrs,secs=divmod(secs,secs_per_hr:=60*60)
-      mins,secs=divmod(secs,secs_per_min:=60)
-      secs=round(secs, 2)
-      answer='{} secs'.format(secs)
+    ts_diff = time2 - time1
+    secs = abs(ts_diff.total_seconds())
+    days,secs=divmod(secs,secs_per_day:=60*60*24)
+    hrs,secs=divmod(secs,secs_per_hr:=60*60)
+    mins,secs=divmod(secs,secs_per_min:=60)
+    secs=round(secs, 2)
+    answer='{} secs'.format(secs)
       
-      if secs > 60:
-          answer='{} mins and {} secs'.format(int(mins),secs)
+    if secs > 60:
+      answer='{} mins and {} secs'.format(int(mins),secs)
       if mins > 60:
-          answer='{} hrs, {} mins and {} secs'.format(int(hrs),int(mins),secs)
-      if hrs > 24:
-          answer='{} days, {} hrs, {} mins and {} secs'.format(int(days),int(hrs),int(mins),secs)
+        answer='{} hrs, {} mins and {} secs'.format(int(hrs),int(mins),secs)
+        if hrs > 24:
+           answer='{} days, {} hrs, {} mins and {} secs'.format(int(days),int(hrs),int(mins),secs)
       
       embed = discord.Embed(title="Time Difference", description=f"Time: {answer}", color=0xf8c7c7)
       await ctx.send(embed=embed)
