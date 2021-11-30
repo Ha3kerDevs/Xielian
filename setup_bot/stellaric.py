@@ -35,11 +35,11 @@ class StellaricBot(commands.Bot):
             intents=intents,
         )
         self.cogs_extensions = [
-            "cogs.event",
-            "cogs.help",
+            #"cogs.event",
+            #"cogs.help",
             "cogs.utility",
-            "cogs.fun",
-            "cogs.info"
+            #"cogs.fun",
+            #"cogs.info"
         ]
         self.loop.create_task(self.load_extensions())
 

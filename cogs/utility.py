@@ -10,7 +10,46 @@ class Utility(commands.Cog, name="<a:utility:831769452344639498>\u2800Utility"):
   
   def __init__(self, client):
     self.client = client
- 
+
+  def pretty_date(time=False):
+    from datetime import datetime
+    now = datetime.now()
+    if type(time) is int:
+        diff = now - datetime.fromtimestamp(time)
+    elif isinstance(time,datetime):
+        diff = now - time
+    elif not time:
+        diff = now - now
+    second_diff = diff.seconds
+    day_diff = diff.days
+
+    if day_diff < 0:
+        return ''
+
+    if day_diff == 0:
+        if second_diff < 10:
+            return "just now"
+        if second_diff < 60:
+            return str(second_diff) + " seconds ago"
+        if second_diff < 120:
+            return "a minute ago"
+        if second_diff < 3600:
+            return str(second_diff / 60) + " minutes ago"
+        if second_diff < 7200:
+            return "an hour ago"
+        if second_diff < 86400:
+            return str(second_diff / 3600) + " hours ago"
+    if day_diff == 1:
+        return "Yesterday"
+    if day_diff < 7:
+        return str(day_diff) + " days ago"
+    if day_diff < 31:
+        return str(day_diff / 7) + " weeks ago"
+    if day_diff < 365:
+        return str(day_diff / 30) + " months ago"
+    return str(day_diff / 365) + " years ago"
+
+
   #@commands.has_any_role()
   @commands.cooldown(1, 6, commands.BucketType.guild)
   @commands.guild_only()
@@ -23,6 +62,7 @@ class Utility(commands.Cog, name="<a:utility:831769452344639498>\u2800Utility"):
     await channel.edit(position=pos)
     await channel.send(f"Nuke successful. [Execution time: {time.time() - exe_start}]", delete_after=11)
 
+  #@commands.has_any_role()
   @commands.guild_only()
   @commands.command(
     name="membercount",
@@ -41,6 +81,10 @@ class Utility(commands.Cog, name="<a:utility:831769452344639498>\u2800Utility"):
     )
     await ctx.reply(embed=embed, allowed_mentions=discord.AllowedMentions().none())
 
+  #@commands.has_any_role()
+  @commands.command()
+  async def timedif(ctx, obj: discord.Object):
+    await ctx.send(pretty_date(obj.created_at))
 
 
 def setup(client):
