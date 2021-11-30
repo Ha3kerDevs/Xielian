@@ -6,6 +6,12 @@ from typing import Optional
 from cogs.utils import checks
 from discord.utils import get
 
+# 793679885285326890 = Developer (Own Server)
+# 797687618007466015 = Moderator (Own Server)
+# 822428355554312212 = Founder
+# 823814683973779488 = Co-Founder
+# 822727647087165461 = Head Admin
+
 class Utility(commands.Cog, name="<a:utility:831769452344639498>\u2800Utility"):
   
   def __init__(self, client):
@@ -21,7 +27,7 @@ class Utility(commands.Cog, name="<a:utility:831769452344639498>\u2800Utility"):
   )
   @commands.cooldown(1, 6, commands.BucketType.guild)
   @commands.guild_only()
-  @commands.command()
+  @commands.command(description="Nukes a channel. For staff only.")
   async def nuke(self, ctx):
     exe_start = time.time()
     pos = ctx.channel.position
@@ -58,7 +64,7 @@ class Utility(commands.Cog, name="<a:utility:831769452344639498>\u2800Utility"):
     822727647087165461
   )
   @commands.guild_only()
-  @commands.command(name='timedif', help='', aliases=['td'])
+  @commands.command(name='timedif', description='For staff only.', aliases=['td'])
   async def timedif(self, ctx, id1, id2):
       try:
         id1 = int(id1)
