@@ -99,7 +99,7 @@ class Utility(commands.Cog, name="Utility"):
       await ctx.send(embed=embed)
   
   @commands.command()
-  async def timedif2(self, ctx, id1: discord.Message, id2: discord.Message):
+  async def timedif2(self, ctx, id1, id2):
     msg1 = id1.created_at()
     msg2 = id2.created_at()
     result = (msg2 - msg1).seconds
