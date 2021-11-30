@@ -13,7 +13,8 @@ from setup_bot import StellaricBot
 # 823814683973779488 = Co-Founder
 # 822727647087165461 = Head Admin
 
-class Utility(commands.Cog, name="<a:utility:831769452344639498>\u2800Utility"):
+# <a:utility:831769452344639498>\u2800
+class Utility(commands.Cog, name="Utility"):
   
   def __init__(self, bot: StellaricBot):
     self.bot = bot
