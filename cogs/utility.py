@@ -97,6 +97,14 @@ class Utility(commands.Cog, name="Utility"):
       
       embed = discord.Embed(title="Time Difference", description=f"Time: {answer}", color=0xf8c7c7)
       await ctx.send(embed=embed)
+  
+  @commands.command()
+  async def timedif2(self, ctx, id1: discord.Message, id2: discord.Message):
+    msg1 = id1.created_at()
+    msg2 = id2.created_at()
+    result = (msg2 - msg1).seconds
+    embed = discord.Embed(title="Timedif 2.0", description=f"Time Difference is {result}")
+    await ctx.send(embed=embed)
 
 
 def setup(bot: StellaricBot):
