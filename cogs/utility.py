@@ -46,16 +46,16 @@ class Utility(commands.Cog, name="<a:utility:831769452344639498>\u2800Utility"):
     await ctx.reply(embed=embed, allowed_mentions=discord.AllowedMentions().none())
   
   @commands.command(name='timedif', help='', aliases=['snowflake', 'timediff'])
-  async def timedif(self, ctx, id1: int, id2: int):
+  async def timedif(self, ctx, id1, id2):
       try:
-        time1 = discord.utils.snowflake_time(int(id1))
-        time2 = discord.utils.snowflake_time(int(id2))
+        id1 = int(id1)
+        id2 = int(id2)
           
       except:
           await ctx.send("Check your message ID's! They are incorrect!")
           
-      time1 = msg1.created_at
-      time2 = msg2.created_at
+      time1 = discord.utils.snowflake_time(int(id1))
+      time2 = discord.utils.snowflake_time(int(id2))
       
       ts_diff = time2 - time1
       secs = abs(ts_diff.total_seconds())
