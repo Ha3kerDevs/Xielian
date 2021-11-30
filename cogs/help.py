@@ -47,7 +47,7 @@ class Help(commands.Cog):
             # iterating trough cogs, gathering descriptions
             cogs_desc = ''
             for cog in self.bot.cogs:
-                cogs_desc += f'{cog} **{self.bot.cogs[cog].__doc__}**\n'
+                cogs_desc += f'**{cog}** {self.bot.cogs[cog].__doc__}\n'
 
             # adding 'list' of cogs to embed
             emb.add_field(name='Modules', value=cogs_desc, inline=False)
@@ -93,7 +93,7 @@ class Help(commands.Cog):
             # yes, for-loops have an else statement, it's called when no 'break' was issued
             else:
                 emb = discord.Embed(title="What's that?!",
-                                    description=f"I've never heard from a module called `{input[0]}` before :scream:",
+                                    description=f"I've never heard from a module called `{input[0]}`",
                                     color=discord.Color.orange())
 
         # too many cogs requested - only one at a time allowed
