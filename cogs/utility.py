@@ -5,6 +5,7 @@ from cogs.utils import config
 from typing import Optional
 from cogs.utils import checks
 from discord.utils import get
+from setup_bot import StellaricBot
 
 # 793679885285326890 = Developer (Own Server)
 # 797687618007466015 = Moderator (Own Server)
@@ -14,8 +15,8 @@ from discord.utils import get
 
 class Utility(commands.Cog, name="<a:utility:831769452344639498>\u2800Utility"):
   
-  def __init__(self, client):
-    self.client = client
+  def __init__(self, bot: StellaricBot):
+    self.bot = bot
 
 
   @commands.has_any_role(
@@ -95,5 +96,5 @@ class Utility(commands.Cog, name="<a:utility:831769452344639498>\u2800Utility"):
       await ctx.send(embed=embed)
 
 
-def setup(client):
-  client.add_cog(Utility(client))
+def setup(bot: StellaricBot):
+  bot.add_cog(Utility(bot))

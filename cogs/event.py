@@ -2,11 +2,12 @@ import discord
 import random
 from asyncio import sleep
 from discord.ext import commands, tasks
+from setup_bot import StellaricBot
 
 class Event(commands.Cog):
 
-  def __init__(self, client):
-    self.client = client
+  def __init__(self, bot: StellaricBot):
+    self.bot = bot
     self.status.start()
   
   @commands.guild_only()
@@ -56,19 +57,19 @@ class Event(commands.Cog):
   @tasks.loop()
   async def status(self):
     while True:
-      await self.client.wait_until_ready()
-      await self.client.change_presence(activity=discord.Activity(type=discord.ActivityType.watching, name=f"{len(self.client.users)} members"))
+      await self.bot.wait_until_ready()
+      await self.bot.change_presence(activity=discord.Activity(type=discord.ActivityType.watching, name=f"{len(self.bot.users)} members"))
       await sleep(140)
-      await self.client.change_presence(activity=discord.Game(name="Stay in Stellaric!"))
+      await self.bot.change_presence(activity=discord.Game(name="Stay in Stellaric!"))
       await sleep(140)
-      await self.client.change_presence(activity=discord.Game(name="Roblox: 4K UHD"))
+      await self.bot.change_presence(activity=discord.Game(name="Roblox: 4K UHD"))
       await sleep(140)
-      await self.client.change_presence(activity=discord.Streaming(name="Nonsense", url="https://www.youtube.com/watch?v=NfSGm9DDQ3o"))
+      await self.bot.change_presence(activity=discord.Streaming(name="Nonsense", url="https://www.youtube.com/watch?v=NfSGm9DDQ3o"))
       await sleep(140)
   
   @status.before_loop
   async def before_change_status(self):
-    await self.client.wait_until_ready()
+    await self.bot.wait_until_ready()
 
-def setup(client):
-    client.add_cog(Event(client))
+def setup(bot: StellaricBot):
+    bot.add_cog(Event(bot))

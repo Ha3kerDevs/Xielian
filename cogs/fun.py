@@ -4,11 +4,12 @@ import asyncio
 import random
 from cogs.utils import checks
 from discord.ext import commands
+from setup_bot import StellaricBot
   
 class Fun(commands.Cog, name="<:banaa:831766861615333387>\u2800Fun"):
   
-  def __init__(self, client):
-    self.client = client
+  def __init__(self, bot: StellaricBot):
+    self.bot = bot
 
   #@checks.in_right_channel()
   @commands.command(
@@ -73,5 +74,5 @@ class Fun(commands.Cog, name="<:banaa:831766861615333387>\u2800Fun"):
     await asyncio.sleep(3)
     await message.edit(embed=embed)
 
-def setup(client):
-  client.add_cog(Fun(client))
+def setup(bot: StellaricBot):
+  bot.add_cog(Fun(bot))

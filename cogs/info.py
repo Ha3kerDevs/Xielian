@@ -4,12 +4,13 @@ from cogs.utils import checks, config
 from discord.ext import commands
 from discord.utils import get
 from typing import Optional
+from setup_bot import StellaricBot
 
 
 class Info(commands.Cog, name="<:infooo:831769439543623712>\u2800Information"):
   
-  def __init__(self, client):
-    self.client = client
+  def __init__(self, bot: StellaricBot):
+    self.bot = bot
 
   @commands.guild_only()
   @commands.command(
@@ -24,16 +25,16 @@ class Info(commands.Cog, name="<:infooo:831769439543623712>\u2800Information"):
     roles = [role for role in user.roles]
     # _____ Badges _____
 
-    balance = get(self.client.emojis, id=815124115433193492)
-    brilliance = get(self.client.emojis, id=815124230701056011)
-    bravery = get(self.client.emojis, id=815124160043810846)
-    hypesquad = get(self.client.emojis, id=815124571070005258)
-    partner = get(self.client.emojis, id=815125503547670529)
-    early = get(self.client.emojis, id=815126086585024522)
-    staff = get(self.client.emojis, id=815126355725123614)
-    verifiedbotdev = get(self.client.emojis, id=815128557066911744)
-    bughunterlvl1 = get(self.client.emojis, id=815128921866502165)
-    bughunterlvl2 = get(self.client.emojis, id=815128943723937792)
+    balance = get(self.bot.emojis, id=815124115433193492)
+    brilliance = get(self.bot.emojis, id=815124230701056011)
+    bravery = get(self.bot.emojis, id=815124160043810846)
+    hypesquad = get(self.bot.emojis, id=815124571070005258)
+    partner = get(self.bot.emojis, id=815125503547670529)
+    early = get(self.bot.emojis, id=815126086585024522)
+    staff = get(self.bot.emojis, id=815126355725123614)
+    verifiedbotdev = get(self.bot.emojis, id=815128557066911744)
+    bughunterlvl1 = get(self.bot.emojis, id=815128921866502165)
+    bughunterlvl2 = get(self.bot.emojis, id=815128943723937792)
     badges = ''
 
     if user.public_flags.verified_bot_developer \
@@ -107,5 +108,5 @@ class Info(commands.Cog, name="<:infooo:831769439543623712>\u2800Information"):
     await ctx.send(embed=info)
 
 
-def setup(client):
-  client.add_cog(Info(client))
+def setup(bot: StellaricBot):
+  bot.add_cog(Info(bot))

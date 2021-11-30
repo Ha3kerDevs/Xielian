@@ -3,13 +3,14 @@ from cogs.utils import config
 from discord.ext import commands
 from cogs.utils import checks
 from cogs.utils import utils
+from setup_bot import StellaricBot
 
 #yes the codes is trash and looks like a spaghet
 
 class Rename(commands.Cog, name="<a:giveawaytada:831766696237727745>\u2800Giveaway Config"):
 
-  def __init__(self, client):
-    self.client = client
+  def __init__(self, bot: StellaricBot):
+    self.bot = bot
   
   #@commands.has_any_role()
   @commands.command(
@@ -75,5 +76,5 @@ class Rename(commands.Cog, name="<a:giveawaytada:831766696237727745>\u2800Giveaw
     await ctx.message.delete()
 
 
-def setup(client):
-    client.add_cog(Rename(client))
+def setup(bot: StellaricBot):
+    bot.add_cog(Rename(bot))
