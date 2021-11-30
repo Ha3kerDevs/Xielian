@@ -7,7 +7,6 @@ class Help(commands.Cog):
   def __init__(self, client):
     self.client = client
   
-  @commands.remove_command('help')
   @commands.cooldown(1, 3, commands.BucketType.user)
   @commands.command(hidden=True, name="help", description="Shows a list of commands.")
   async def help(self, ctx, *cmd):
