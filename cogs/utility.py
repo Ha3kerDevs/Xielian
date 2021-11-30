@@ -82,18 +82,18 @@ class Utility(commands.Cog, name="Utility"):
       
       ts_diff = time2 - time1
       secs = abs(ts_diff.total_seconds())
-      days,secs=divmod(secs,secs_per_day:=60*60*24)
-      hrs,secs=divmod(secs,secs_per_hr:=60*60)
-      mins,secs=divmod(secs,secs_per_min:=60)
-      secs=round(secs, 2)
+      #days,secs=divmod(secs,secs_per_day:=60*60*24)
+      #hrs,secs=divmod(secs,secs_per_hr:=60*60)
+      #mins,secs=divmod(secs,secs_per_min:=60)
+      #secs=round(secs, 2)
       answer='{} secs'.format(secs)
       
-      if secs > 60:
-          answer='{} mins and {} secs'.format(int(mins),secs)
-          if mins > 60:
-              answer='{} hrs, {} mins and {} secs'.format(int(hrs),int(mins),secs)
-              if hrs > 24:
-                  answer='{} days, {} hrs, {} mins and {} secs'.format(int(days),int(hrs),int(mins),secs)
+      #if secs > 60:
+      #    answer='{} mins and {} secs'.format(int(mins),secs)
+      #    if mins > 60:
+      #        answer='{} hrs, {} mins and {} secs'.format(int(hrs),int(mins),secs)
+      #        if hrs > 24:
+      #            answer='{} days, {} hrs, {} mins and {} secs'.format(int(days),int(hrs),int(mins),secs)
       
       embed = discord.Embed(title="Time Difference", description=f"Time: {answer}", color=0xf8c7c7)
       await ctx.send(embed=embed)
