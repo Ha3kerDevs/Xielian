@@ -3,6 +3,8 @@ from cogs.utils import checks
 from discord.ext import commands
 from setup_bot import StellaricBot
   
+#icon_url=self.bot.user.avatar_url
+
 class Help(commands.Cog):
   
   def __init__(self, bot: StellaricBot):
@@ -14,7 +16,7 @@ class Help(commands.Cog):
     prefix = self.bot.command_prefix
     if not cmd:
       embed = discord.Embed(title="Stellaric Help Center", description=f"Use `{prefix}help <command>` for help.", color=0x84c2fd)
-      embed.set_footer(text="Stellaric | Note: This bot is work in progress.", icon_url=self.bot.user.avatar_url)
+      embed.set_footer(text="Stellaric | Note: This bot is work in progress.")
       for cog in sorted(self.bot.cogs):
         value = ", ".join(
           f"`{str(command)}`" for command in filter(
@@ -34,8 +36,7 @@ class Help(commands.Cog):
         brief = command.brief
         aliases = sorted(command.aliases)
         embed = discord.Embed(title=f"Command: {prefix}{name}", description=f"{command.description}", color=0x2e3136)
-        embed.set_footer(text="Stellaric • Arg Usage: <> = Required; [] = Optional",
-        icon_url=self.bot.user.avatar_url)
+        embed.set_footer(text="Stellaric • Arg Usage: <> = Required; [] = Optional")
         if usage:
           embed.add_field(name="Usage", value=f"{prefix}{name} {usage}")
         if aliases:
