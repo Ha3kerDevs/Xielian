@@ -12,9 +12,13 @@ class Utility(commands.Cog, name="<a:utility:831769452344639498>\u2800Utility"):
     self.client = client
 
 
-
-
-  #@commands.has_any_role()
+  @commands.has_any_role(
+    793679885285326890,
+    797687618007466015,
+    822428355554312212,
+    823814683973779488,
+    822727647087165461
+  )
   @commands.cooldown(1, 6, commands.BucketType.guild)
   @commands.guild_only()
   @commands.command()
@@ -27,6 +31,7 @@ class Utility(commands.Cog, name="<a:utility:831769452344639498>\u2800Utility"):
     await channel.send(f"Nuke successful. [Execution time: {time.time() - exe_start}]", delete_after=11)
 
   #@commands.has_any_role()
+  @commands.cooldown(1, 6, commands.BucketType.user)
   @commands.guild_only()
   @commands.command(
     name="membercount",
@@ -45,7 +50,15 @@ class Utility(commands.Cog, name="<a:utility:831769452344639498>\u2800Utility"):
     )
     await ctx.reply(embed=embed, allowed_mentions=discord.AllowedMentions().none())
   
-  @commands.command(name='timedif', help='', aliases=['snowflake', 'timediff'])
+  @commands.has_any_role(
+    793679885285326890,
+    797687618007466015,
+    822428355554312212,
+    823814683973779488,
+    822727647087165461
+  )
+  @commands.guild_only()
+  @commands.command(name='timedif', help='', aliases=['td'])
   async def timedif(self, ctx, id1, id2):
       try:
         id1 = int(id1)
@@ -72,9 +85,7 @@ class Utility(commands.Cog, name="<a:utility:831769452344639498>\u2800Utility"):
               if hrs > 24:
                   answer='{} days, {} hrs, {} mins and {} secs'.format(int(days),int(hrs),int(mins),secs)
       
-      embed = discord.Embed(title="**Time Difference**", description=f"""IDs: {id1}, {id2}
-      Time difference between the 2 IDs: 
-      {answer}""")
+      embed = discord.Embed(title="**Time Difference**", description=f"Time: {answer}")
       await ctx.send(embed=embed)
 
 
