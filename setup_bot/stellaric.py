@@ -33,7 +33,8 @@ class StellaricBot(commands.Bot):
             allowed_mentions=allowed_mentions,
             #activity=activity,
             intents=intents,
-            help_command=None
+            help_command=None,
+            slash_commands=True
         )
         self.cogs_extensions = [
             #"cogs.event",
