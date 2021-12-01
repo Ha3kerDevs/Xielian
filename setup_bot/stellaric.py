@@ -39,6 +39,7 @@ class StellaricBot(commands.Bot):
             #"cogs.event",
             "cogs.help",
             "cogs.utility",
+            "cogs.testing",
             #"cogs.fun",
             #"cogs.info"
         ]
