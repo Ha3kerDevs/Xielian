@@ -14,17 +14,10 @@ class Testing(commands.Cog, name="Testing"):
         self.bot = bot
     
     @commands.has_any_role(793679885285326890)
-    @commands.command()
-    async def pingslash(
-        self, 
-        ctx: commands.Context, 
-        emoji: bool = commands.Option(description="Slash command testing")):
-
-        if emoji:
-            await ctx.send("\U0001f3d3")
-        else:
-            await ctx.send("Pong!")
-
+    @commands.command(message_command=False)
+    async def only_slash(self, ctx: commands.Context):
+        # This command can only be used with slash commands
+        await ctx.send("Hello from slash commands!")
 
 def setup(bot: StellaricBot):
   bot.add_cog(Testing(bot))
