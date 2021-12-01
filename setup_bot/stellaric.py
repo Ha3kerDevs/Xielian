@@ -34,7 +34,7 @@ class StellaricBot(commands.Bot):
             #activity=activity,
             intents=intents,
             help_command=None,
-            slash_commands=True,
+            #slash_commands=True,
             slash_command_guilds=[793679694057701406]
         )
         self.cogs_extensions = [
