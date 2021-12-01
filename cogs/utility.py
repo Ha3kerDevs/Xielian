@@ -75,8 +75,8 @@ class Utility(commands.Cog, name="Utility"):
   )
   async def timedif(
       self, ctx, 
-      id1: Optional[int] = commands.Option(description="PLEASE PRESS TAB WHEN YOU FINISHED PASTING ID1"), 
-      id2: Optional[int] = commands.Option(description="PLEASE PRESS TAB WHEN YOU FINISHED PASTING ID2")
+      id1: Optional[str] = commands.Option(description="PLEASE PRESS TAB WHEN YOU FINISHED PASTING ID1"), 
+      id2: Optional[str] = commands.Option(description="PLEASE PRESS TAB WHEN YOU FINISHED PASTING ID2")
     ):
       try:
         id1 = int(id1)
