@@ -15,6 +15,7 @@ class Testing(commands.Cog, name="Testing"):
 
     @commands.command()
     async def delete(self, ctx):
+        await self.bot.http.bulk_upsert_global_commands(self.bot.application_id, [])
         await self.bot.http.bulk_upsert_guild_commands(self.bot.application_id, 793679694057701406, [])
     
     @commands.has_any_role(793679885285326890)
