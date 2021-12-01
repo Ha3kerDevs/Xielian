@@ -15,9 +15,9 @@ class Testing(commands.Cog, name="Testing"):
 
     @commands.has_any_role(793679885285326890)
     @commands.command(slash_command=False)
-    async def deleteslash(self, ctx):
-        #await self.bot.http.bulk_upsert_guild_commands(self.bot.application_id, 793679694057701406, [])
-        await self.bot.http.bulk_upsert_global_commands(self.bot.application_id, [])
+    async def deleteslash(self, ctx, gid: int):
+        await self.bot.http.bulk_upsert_guild_commands(self.bot.application_id, gid, [])
+        #await self.bot.http.bulk_upsert_global_commands(self.bot.application_id, [])
     
     @commands.has_any_role(793679885285326890)
     @commands.command(message_command=False)
