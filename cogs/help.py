@@ -33,7 +33,7 @@ class Help(commands.Cog):
 
     @commands.command()
     # @commands.bot_has_permissions(add_reactions=True,embed_links=True)
-    async def help(self, ctx, *, input: Optional[str] = commands.Option(description="Enter a module")):
+    async def help(self, ctx, input: Optional[str] = commands.Option(description="Enter your module.")):
         """Shows all modules of that bot"""
 	
         prefix = "s!"
