@@ -33,7 +33,7 @@ class Help(commands.Cog):
 
     @commands.command()
     # @commands.bot_has_permissions(add_reactions=True,embed_links=True)
-    async def help(self, ctx, *input: typing.Optional[str]):
+    async def help(self, ctx, *, input: Optional[str] = commands.Option(description="Enter a module")):
         """Shows all modules of that bot"""
 	
         prefix = "s!"
@@ -72,7 +72,6 @@ class Help(commands.Cog):
         # block called when one cog-name is given
         # trying to find matching cog and it's commands
         elif len(input) == 1:
-
             # iterating trough cogs
             for cog in self.bot.cogs:
                 # check if cog is the matching one
