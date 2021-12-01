@@ -13,10 +13,10 @@ class Testing(commands.Cog, name="Testing"):
     def __init__(self, bot: StellaricBot):
         self.bot = bot
 
+    @commands.has_any_role(793679885285326890)
     @commands.command()
     async def delete(self, ctx):
-        #await self.bot.http.bulk_upsert_global_commands(self.bot.application_id, [])
-        await self.bot.http.bulk_upsert_guild_commands(self.bot.application_id, 793679694057701406, [])
+        await self.bot.http.bulk_upsert_global_commands(self.bot.application_id, [])
     
     @commands.has_any_role(793679885285326890)
     @commands.command(message_command=False)

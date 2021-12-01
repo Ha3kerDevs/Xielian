@@ -32,7 +32,7 @@ class Utility(commands.Cog, name="Utility"):
   )
   @commands.cooldown(1, 6, commands.BucketType.guild)
   @commands.guild_only()
-  @commands.command(help="Nukes a channel. For staff only.\n `s!nuke`", slash_commands=False)
+  @commands.command(help="Nukes a channel. For staff only.\n `s!nuke`")
   async def nuke(self, ctx):
     exe_start = time.time()
     pos = ctx.channel.position
@@ -47,8 +47,7 @@ class Utility(commands.Cog, name="Utility"):
   @commands.command(
     name="membercount",
     help="check how many members in Stellaric.",
-    aliases=["mc"],
-    slash_commands=False
+    aliases=["mc"]
   )
   async def _membercount(self, ctx):
     member_count = len(ctx.guild.members)
@@ -72,8 +71,7 @@ class Utility(commands.Cog, name="Utility"):
   @commands.command(
     name='timedif',
     help='For staff only.\n `s!timedif <id1> <id2>`',
-    aliases=['td'],
-    slash_commands=False
+    aliases=['td']
   )
   async def timedif(self, ctx, id1, id2):
       try:
