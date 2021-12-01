@@ -13,17 +13,15 @@ class Testing(commands.Cog, name="Testing"):
     def __init__(self, bot: StellaricBot):
         self.bot = bot
 
-    @commands.has_any_role(793679885285326890)
     @commands.command(slash_command=False)
     async def deleteslash(self, ctx, gid: int):
-        await self.bot.http.bulk_upsert_guild_commands(self.bot.application_id, gid, [])
+        if author.id == 341837496763678731:
+            await self.bot.http.bulk_upsert_guild_commands(self.bot.application_id, gid, [])
+            await ctx.message.delete()
+            return
+        else:
+            return
         #await self.bot.http.bulk_upsert_global_commands(self.bot.application_id, [])
-    
-    @commands.has_any_role(793679885285326890)
-    @commands.command(message_command=False)
-    async def only_slash(self, ctx: commands.Context):
-        # This command can only be used with slash commands
-        await ctx.send("Hello from slash commands!")
 
 def setup(bot: StellaricBot):
   bot.add_cog(Testing(bot))
