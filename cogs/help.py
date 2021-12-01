@@ -33,7 +33,7 @@ class Help(commands.Cog):
 
     @commands.command()
     # @commands.bot_has_permissions(add_reactions=True,embed_links=True)
-    async def help(self, ctx, *input: Optional[str]):
+    async def help(self, ctx, *input: typing.Optional[str]):
         """Shows all modules of that bot"""
 	
         prefix = "s!"
