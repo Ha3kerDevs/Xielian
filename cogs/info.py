@@ -1,4 +1,4 @@
-import discord, time
+import discord, time, typing
 import datetime
 from cogs.utils import checks, config, utils
 from discord.ext import commands
