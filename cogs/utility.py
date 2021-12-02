@@ -112,17 +112,17 @@ class Utility(commands.Cog, name="Utility"):
   async def _winlog(self, ctx, user: discord.Member, gtype, *, arg):
     channel = user.guild.get_channel(831133427159400468)
     text = arg.upper()
-    thenlog = discord.Embed(
-        title=f"Win log",
-        description=f"**Got Logged:** {str(user)} [`{user.id}`]\n"
-        f"**Giveaway Type | Item:** `{gtype}` | `{text}`\n"
-        f"**Responsible:** {ctx.author.mention}",
-        color=0xf8c7c7
-      )
+    #thenlog = discord.Embed(
+    #  title=f"Win log",
+    #  description=f"**Got Logged:** {str(user)} [`{user.id}`]\n"
+    #  f"**Giveaway Type | Item:** `{gtype}` | `{text}`\n"
+    #  f"**Responsible:** {ctx.author.mention}",
+    #  color=0xf8c7c7
+    #)
     #auditlog.set_thumbnail(url=user.avatar_url)
-    thenlog.set_footer(text=f"Stellaric Logs | Author ID: {ctx.author.id}")
+    #thenlog.set_footer(text=f"Stellaric Logs | Author ID: {ctx.author.id}")
 
-    await ctx.send(f"[ {user.mention} ] Claimed **{text}** from {gtype}", embed=thenlog)
+    await ctx.send(f"[ {user.mention} ] Claimed **{text}** from {gtype}")
 
     await ctx.message.delete()
 
