@@ -97,7 +97,8 @@ class Utility(commands.Cog, name="Utility"):
       await ctx.send(embed=embed)
 
   @commands.has_any_role(
-    793679885285326890
+    793679885285326890,
+    822727647087165461
   )
   @commands.cooldown(1, 3, commands.BucketType.user)
   @commands.command(pass_context=True,
