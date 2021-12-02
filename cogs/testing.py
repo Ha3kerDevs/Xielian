@@ -13,6 +13,7 @@ class Testing(commands.Cog, name="Testing", hidden=True):
     def __init__(self, bot: StellaricBot):
         self.bot = bot
 
+    @commands.has_any_role(793679885285326890)
     @commands.command(slash_command=False)
     async def deleteslash(self, ctx, gid: int):
         if author.id == 341837496763678731:
