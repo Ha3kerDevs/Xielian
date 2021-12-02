@@ -6,9 +6,6 @@ from discord.utils import get
 from setup_bot import StellaricBot
 
 class TestingQ(commands.Cog, command_attrs=dict(hidden=True), name="Testing"):
-  """
-  bruh
-  """
 
   def __init__(self, bot: StellaricBot):
     self.bot = bot
