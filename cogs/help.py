@@ -96,7 +96,7 @@ class Help(commands.Cog):
                 embed.set_footer(text=bottom_info)
         elif len(commands) == 1:
             # Try to see if it is a cog name
-            name = commands[0]
+            name = commands[0].capitalize()
             command = None
 
             if name in bot.cogs:
