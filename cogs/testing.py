@@ -5,13 +5,13 @@ from discord.ext import commands
 from setup_bot import StellaricBot
 
 
-class TestingCmds(commands.Cog, name="Testing", hidden=True):
-    """
-    this is for test purposes
-    """
-  
-    def __init__(self, bot: StellaricBot):
-        self.bot = bot
+class Testing(commands.Cog, name="Testing", hidden=True):
+  """
+  For testing purposes.
+  """
+
+  def __init__(self, bot: StellaricBot):
+    self.bot = bot
 
     @commands.has_any_role(793679885285326890)
     @commands.command(slash_command=False)
