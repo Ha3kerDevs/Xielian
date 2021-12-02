@@ -116,7 +116,7 @@ class Utility(commands.Cog, name="Utility"):
     thenlog = discord.Embed(
         title=f"Audit log | winlog ({gtype})",
         description=f"**Got Logged:** {str(user)} [{user.id}] for {text}\n"
-        f"**Responsible:** {author.mention}",
+        f"**Responsible:** {ctx.author.mention}",
         color=0xf8c7c7
       )
     #auditlog.set_thumbnail(url=user.avatar_url)
