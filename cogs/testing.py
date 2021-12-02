@@ -1,28 +1,24 @@
 import discord
 import datetime
-from cogs.utils import config
+from cogs.utils import checks, config
 from discord.ext import commands
+from discord.utils import get
 from setup_bot import StellaricBot
 
-
 class Testing(commands.Cog, name="Testing", hidden=True):
-  """
-  For testing purposes.
-  """
-
-  def __init__(self, bot: StellaricBot):
-    self.bot = bot
-
+  
+    def __init__(self, bot: StellaricBot):
+        self.bot = bot
+    
     @commands.has_any_role(793679885285326890)
-    @commands.command(slash_command=False)
+    @commands.command()
     async def deleteslash(self, ctx, gid: int):
         if author.id == 341837496763678731:
             await self.bot.http.bulk_upsert_guild_commands(self.bot.application_id, gid, [])
-            await ctx.message.delete()
             return
         else:
             return
-        #await self.bot.http.bulk_upsert_global_commands(self.bot.application_id, [])
+
 
 def setup(bot: StellaricBot):
-  bot.add_cog(TestingCmds(bot))
+  bot.add_cog(Testing(bot))
