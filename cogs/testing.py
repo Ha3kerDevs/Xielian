@@ -5,7 +5,7 @@ from discord.ext import commands
 from setup_bot import StellaricBot
 
 
-class Testing(commands.Cog, name="Testing", hidden=True):
+class TestingCmds(commands.Cog, name="Testing", hidden=True):
     """
     this is for test purposes
     """
@@ -25,4 +25,4 @@ class Testing(commands.Cog, name="Testing", hidden=True):
         #await self.bot.http.bulk_upsert_global_commands(self.bot.application_id, [])
 
 def setup(bot: StellaricBot):
-  bot.add_cog(Testing(bot))
+  bot.add_cog(TestingCmds(bot))
