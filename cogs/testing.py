@@ -15,7 +15,7 @@ class TestingQ(commands.Cog, name="Testing", command_attrs=dict(hidden=True)):
   
 
   @commands.has_any_role(793679885285326890)
-  @commands.command()
+  @commands.command(hidden=True)
   async def slashdelete(self, ctx, gid: int):
     
     if author.id == 341837496763678731:
