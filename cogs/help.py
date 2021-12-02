@@ -40,7 +40,7 @@ class Help(commands.Cog):
         bottom_info = "[ H Λ 3 K Ξ Я™ ] | Stellaric"
         bot = ctx.bot
         prefix = "s!"
-        embed = discord.Embed(title="Stellaric", description="This is description")
+        embed = discord.Embed(title="Stellaric", description="Arguments: <> = Required () = Optional")
 
         def generate_usage(command_name):
             """ Generates a string of how to use a command """
@@ -104,7 +104,7 @@ class Help(commands.Cog):
                 msg = generate_command_list(name)
                 embed.add_field(name=name, value=msg, inline=False)
                 msg = f'{cog.description}\n'
-                embed.add_field(value=msg)
+                embed.add_field(name="Information", value=msg)
                 embed.set_footer(text=bottom_info)
 
             # Must be a command then
