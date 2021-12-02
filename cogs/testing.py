@@ -5,7 +5,7 @@ from discord.ext import commands
 from discord.utils import get
 from setup_bot import StellaricBot
 
-class Testing(commands.Cog, hidden=True):
+class TestingQ(commands.Cog, name="Testing"):
   """
   bruh
   """
@@ -27,4 +27,4 @@ class Testing(commands.Cog, hidden=True):
 
 
 def setup(bot: StellaricBot):
-  bot.add_cog(Testing(bot))
+  bot.add_cog(TestingQ(bot))
