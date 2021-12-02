@@ -78,9 +78,9 @@ class Help(commands.Cog):
                     temp += f'{command}\n'
                 else:
                     temp += f'`{command}`'
-                    #for i in range(0, max - len(f'{command}') + 1):
-                    #    temp += ''
-                    #temp += f'{command.help}\n'
+                    for i in range(0, max - len(f'{command}') + 1):
+                        temp += ''
+                    temp += f'{command.help}\n'
             return temp
 
         # Help by itself just lists our own commands.
