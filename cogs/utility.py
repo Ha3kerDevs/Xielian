@@ -106,7 +106,7 @@ class Utility(commands.Cog, name="Utility"):
   @commands.cooldown(1, 3, commands.BucketType.user)
   @commands.command(pass_context=True, invoke_without_command=True,
     name="winlog",
-    help="logs the winner of a giveaway.\n Usage: <user>, <gtype> and <item>",
+    help="logs the winner of a giveaway.",
     usage='`<user>, <gtype> and <item>`',
     #usage="<drop, giveaway or event> <user> <item>"
   )
