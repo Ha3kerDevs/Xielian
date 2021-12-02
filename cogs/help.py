@@ -57,8 +57,9 @@ class Help(commands.Cog):
                 temp += f'[{command.name}|{t}]'
             # Parameters
             params = f' '
-            for param in command.clean_params:
-                #params += f'<{command.clean_params[param]}> '
+            #for param in command.clean_params:
+            #    params += f'<{command.clean_params[param]}> '
+            if usage:
                 params += f'{usage}'
             temp += f'{params}'
             return temp
