@@ -38,7 +38,7 @@ class Help(commands.Cog):
     async def help_command(self, ctx, *commands: str):
         """ Shows this message """
         bot = ctx.bot
-        embed = discord.Embed(title=bot_title, description=bot_description)
+        embed = discord.Embed(title="Stellaric", description="This is description")
 
         def generate_usage(command_name):
             """ Generates a string of how to use a command """
