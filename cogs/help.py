@@ -112,7 +112,7 @@ class Help(commands.Cog):
         await send_embed(ctx, emb)
 
     @commands.cooldown(1, 3, commands.BucketType.user)
-    @commands.command(hidden=True, name="help", description="Shows a list of commands.")
+    @commands.command(hidden=True, name="help2", description="Shows a list of commands.")
     async def help2(self, ctx, *cmd):
         prefix = self.bot.command_prefix
         if not cmd:
