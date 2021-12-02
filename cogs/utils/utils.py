@@ -1,7 +1,7 @@
 import discord
 from discord.ext import commands
 
-async def post_winlog_log(gtype, user, text, author):
+async def post_winlog_log(ctx, gtype, user, text, author):
   #channel = user.guild.get_channel(831133427159400468)
   auditlog = discord.Embed(
       title=f"Audit log | winlog ({gtype})",
