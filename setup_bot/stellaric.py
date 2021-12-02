@@ -18,9 +18,9 @@ intents = discord.Intents(
     voice_states=True
     )
 
-#async def get_prefix(bot: "Stellaric", message: discord.Message):
-#    prefixes = ["s!"]
-#    return prefixes
+async def get_prefix(bot: "Stellaric", message: discord.Message):
+    prefixes = ["s!"]
+    return prefixes
   
 allowed_mentions = discord.AllowedMentions.none()
   
@@ -28,7 +28,7 @@ class StellaricBot(commands.Bot):
     def __init__(self, **kwargs):
         super().__init__(
             **kwargs,
-            command_prefix=["s!"],
+            command_prefix=get_prefix,
             case_insensitive=True,
             allowed_mentions=allowed_mentions,
             #activity=activity,
