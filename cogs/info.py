@@ -78,14 +78,12 @@ class Info(commands.Cog, name="Information"):
     
     #embed.set_thumbnail(url=user.avatar_url)
     embed.set_footer(text=f"User ID: {user.id}")
-    # {user.created_at.strftime('%B %d, %Y %I:%M %p UTC')}
-    # {user.joined_at.strftime('%B %d, %Y %I:%M %p UTC')}
 
     embed.add_field(name="General", value=
     f"• **Name:** {str(user)}\n"
     f"• **Display Name:** {user.display_name or 'None'}\n"
     f"• **Registered At:** {utils.timestamp(user.created_at, 'f')}\n"
-    f"• **Joined At:** {user.joined_at.strftime('%B %d, %Y %I:%M %p UTC')}\n"
+    f"• **Joined At:** {utils.timestamp(user.joined_at, 'f')}\n"
     f"• **Badges:** {badges or 'None'}", inline=False)
 
     embed.add_field(name=f"Roles [{len(roles[1:]) or ''}]", value=", ".join([role.mention for role in roles[1:]]) or 'None', inline=False)
