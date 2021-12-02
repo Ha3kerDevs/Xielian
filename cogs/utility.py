@@ -120,7 +120,7 @@ class Utility(commands.Cog, name="Utility"):
         color=0xf8c7c7
       )
     #auditlog.set_thumbnail(url=user.avatar_url)
-    thenlog.set_footer(text=f"Stellaric Logs | Author ID: {author.id}")
+    thenlog.set_footer(text=f"Stellaric Logs | Author ID: {ctx.author.id}")
 
     await ctx.send(f"[ {user.mention} ] Claimed **{text}** from {gtype}", embed=thenlog)
 
