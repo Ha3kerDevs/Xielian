@@ -13,6 +13,13 @@ from setup_bot import StellaricBot
 # 822428355554312212 = Founder
 # 823814683973779488 = Co-Founder
 # 822727647087165461 = Head Admin
+# 823048526610038796 = Admin
+# 825584517963055174 = Manager
+# 823048690058526730 = Head Moderator
+# 823048862821777438 = Senior Moderator
+# 823372056409800724 = Moderator
+# 826833464401330177 = Helper
+
 
 # <a:utility:831769452344639498>\u2800
 class Utility(commands.Cog, name="Utility"):
@@ -98,13 +105,22 @@ class Utility(commands.Cog, name="Utility"):
 
   @commands.has_any_role(
     793679885285326890,
-    822727647087165461
+    797687618007466015,
+    822428355554312212,
+    823814683973779488,
+    822727647087165461,
+    823048526610038796,
+    825584517963055174,
+    823048690058526730,
+    823048862821777438,
+    823372056409800724,
+    826833464401330177
   )
   @commands.cooldown(1, 3, commands.BucketType.user)
   @commands.command(pass_context=True,
     name="winlog",
     help="logs the winner of a giveaway.",
-    usage='<user>, <gtype> and <item>',
+    usage='<user>, <giveaway type> and <item>',
   )
   async def _winlog(self, ctx, user: discord.Member, gtype, *, arg):
     channel = user.guild.get_channel(831133427159400468)
