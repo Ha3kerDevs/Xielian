@@ -7,8 +7,8 @@ from setup_bot import StellaricBot
 
 class Testing(commands.Cog, name="Testing", hidden=True):
   
-    def __init__(self, bot: StellaricBot):
-        self.bot = bot
+  def __init__(self, bot: StellaricBot):
+    self.bot = bot
 
 
 def setup(bot: StellaricBot):
