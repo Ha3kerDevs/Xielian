@@ -108,7 +108,6 @@ class Utility(commands.Cog, name="Utility"):
     name="winlog",
     help="logs the winner of a giveaway.",
     usage='<user>, <gtype> and <item>',
-    #usage="<drop, giveaway or event> <user> <item>"
   )
   async def _winlog(self, ctx, user: discord.Member, gtype, *, arg):
     channel = user.guild.get_channel(831133427159400468)

@@ -33,7 +33,7 @@ class Help(commands.Cog):
 
     @commands.command(name='help',
                       description='Help command',
-                      aliases=['info', 'commands'],
+                      slash_command=False,
                       case_insensitive=True)
     async def help_command(self, ctx, *commands: str):
         """ Shows this message """
