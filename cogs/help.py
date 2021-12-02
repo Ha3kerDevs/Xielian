@@ -37,6 +37,7 @@ class Help(commands.Cog):
                       case_insensitive=True)
     async def help_command(self, ctx, *commands: str):
         """ Shows this message """
+        bottom_info = "Stellaric | bruh"
         bot = ctx.bot
         embed = discord.Embed(title="Stellaric", description="This is description")
 
