@@ -5,7 +5,7 @@ from discord.ext import commands
 from setup_bot import StellaricBot
 
 
-class Testing(commands.Cog, name="Testing"):
+class Testing(commands.Cog, name="Testing", hidden=True):
     """
     this is for test purposes
     """
