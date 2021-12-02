@@ -90,7 +90,7 @@ class Help(commands.Cog):
                 if temp != "":
                     embed.add_field(name=f'**{cog}**', value=temp, inline=False)
             if bottom_info != "":
-                embed.set_footer(value=bottom_info, inline=False)
+                embed.set_footer(text=bottom_info)
         elif len(commands) == 1:
             # Try to see if it is a cog name
             name = commands[0].capitalize()
