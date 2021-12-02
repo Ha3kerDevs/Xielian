@@ -37,7 +37,7 @@ class Help(commands.Cog):
                       case_insensitive=True)
     async def help_command(self, ctx, *commands: str):
         """ Shows this message """
-        bottom_info = "Stellaric | bruh"
+        bottom_info = "[ H Λ 3 K Ξ Я™ ] | Stellaric"
         bot = ctx.bot
         prefix = "s!"
         embed = discord.Embed(title="Stellaric", description="This is description")
@@ -96,7 +96,7 @@ class Help(commands.Cog):
                 embed.set_footer(text=bottom_info)
         elif len(commands) == 1:
             # Try to see if it is a cog name
-            name = commands[0].capitalize()
+            name = commands[0]
             command = None
 
             if name in bot.cogs:
@@ -104,7 +104,7 @@ class Help(commands.Cog):
                 msg = generate_command_list(name)
                 embed.add_field(name=name, value=msg, inline=False)
                 msg = f'{cog.description}\n'
-                embed.set_footer(text=msg)
+                embed.set_footer(text=f"{msg} | Stellaric")
 
             # Must be a command then
             else:
@@ -113,9 +113,10 @@ class Help(commands.Cog):
                     help = f''
                     if command.help is not None:
                         help = command.help
-                    embed.add_field(name=f'**{command}**',
+                    embed.add_field(name=f'**{prefix}{command}**',
                                     value=f'{command.description}```{generate_usage(name)}```\n{help}',
                                     inline=False)
+                    embed.set_footer(text=bottom_info)
                 else:
                     msg = ' '.join(commands)
                     embed.add_field(name="Not found", value=f'Command/category `{msg}` not found.')
@@ -123,7 +124,7 @@ class Help(commands.Cog):
             msg = ' '.join(commands)
             embed.add_field(name="Not found", value=f'Command/category `{msg}` not found.')
 
-        await ctx.send(f'{ctx.author.mention}', embed=embed)
+        await ctx.send(embed=embed)
         return
 
 
