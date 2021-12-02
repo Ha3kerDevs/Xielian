@@ -30,7 +30,7 @@ class StellaricBot(commands.Bot):
             **kwargs,
             command_prefix=get_prefix,
             case_insensitive=True,
-            allowed_mentions=allowed_mentions,
+            #allowed_mentions=allowed_mentions,
             #activity=activity,
             intents=intents,
             help_command=None,
