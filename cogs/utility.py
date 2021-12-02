@@ -114,8 +114,8 @@ class Utility(commands.Cog, name="Utility"):
     text = arg.upper()
     thenlog = discord.Embed(
         title=f"Win log",
-        description=f"**Got Logged:** {str(user)} [`{user.id}``]\n"
-        f"**Giveaway Type | Item:** {gtype} | {text}\n"
+        description=f"**Got Logged:** {str(user)} [`{user.id}`]\n"
+        f"**Giveaway Type | Item:** `{gtype}`` | `{text}`\n"
         f"**Responsible:** {ctx.author.mention}",
         color=0xf8c7c7
       )
