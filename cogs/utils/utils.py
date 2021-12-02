@@ -12,3 +12,9 @@ from discord.ext import commands
 #  #auditlog.set_thumbnail(url=user.avatar_url)
 #  auditlog.set_footer(text=f"Stellaric Logs | Author ID: {author.id}")
 #  await ctx.send(embed = auditlog)
+
+
+def timestamp(times: datetime.datetime, format: typing.Optional[str] = None):
+    if format:
+        return f'<t:{int(times.replace(tzinfo=datetime.timezone.utc).timestamp())}:{format}>'
+    return f'<t:{int(times.replace(tzinfo=datetime.timezone.utc).timestamp())}>'

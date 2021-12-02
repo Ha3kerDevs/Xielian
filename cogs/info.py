@@ -1,6 +1,6 @@
 import discord, time
 import datetime
-from cogs.utils import checks, config
+from cogs.utils import checks, config, utils
 from discord.ext import commands
 from discord.utils import get
 from typing import Optional
@@ -78,11 +78,13 @@ class Info(commands.Cog, name="Information"):
     
     #embed.set_thumbnail(url=user.avatar_url)
     embed.set_footer(text=f"User ID: {user.id}")
+    # {user.created_at.strftime('%B %d, %Y %I:%M %p UTC')}
+    # {user.joined_at.strftime('%B %d, %Y %I:%M %p UTC')}
 
     embed.add_field(name="General", value=
     f"• **Name:** {str(user)}\n"
     f"• **Display Name:** {user.display_name or 'None'}\n"
-    f"• **Registered At:** {user.created_at.strftime('%B %d, %Y %I:%M %p UTC')}\n"
+    f"• **Registered At:** {utils.timestamp(user.created_at, 'f')}\n"
     f"• **Joined At:** {user.joined_at.strftime('%B %d, %Y %I:%M %p UTC')}\n"
     f"• **Badges:** {badges or 'None'}", inline=False)
 
