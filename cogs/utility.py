@@ -32,7 +32,7 @@ class Utility(commands.Cog, name="Utility"):
   )
   @commands.cooldown(1, 6, commands.BucketType.guild)
   @commands.guild_only()
-  @commands.command(help="Nukes a channel. For staff only.")
+  @commands.command(help="Nukes (Mass purge) a channel. For staff only.")
   async def nuke(self, ctx):
     exe_start = time.time()
     pos = ctx.channel.position
@@ -100,7 +100,7 @@ class Utility(commands.Cog, name="Utility"):
     793679885285326890
   )
   @commands.cooldown(1, 3, commands.BucketType.user)
-  @commands.command(pass_context=True, invoke_without_command=True,
+  @commands.command(pass_context=True,
     name="winlog",
     help="logs the winner of a giveaway.",
     usage='<user>, <gtype> and <item>',
