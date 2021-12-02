@@ -39,7 +39,7 @@ class Help(commands.Cog):
         """ Shows this message """
         bottom_info = "Stellaric | bruh"
         bot = ctx.bot
-        prefix = bot.command_prefix
+        prefix = "s!"
         embed = discord.Embed(title="Stellaric", description="This is description")
 
         def generate_usage(command_name):
@@ -79,7 +79,7 @@ class Help(commands.Cog):
                 else:
                     temp += f'`{command}`'
                     for i in range(0, max - len(f'{command}') + 1):
-                        temp += ''
+                        temp += ' '
                     temp += f'{command.help}\n'
             return temp
 
