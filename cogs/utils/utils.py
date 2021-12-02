@@ -1,5 +1,8 @@
 import discord
+import datetime
+import time
 from discord.ext import commands
+
 
 #async def post_winlog_log(gtype, user, text, author):
 #  #channel = user.guild.get_channel(831133427159400468)
