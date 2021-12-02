@@ -25,7 +25,7 @@ async def send_embed(ctx, embed):
 
 class Help(commands.Cog):
     """
-    Sends this help message
+    For a single command (help) lol.
     """
 
     def __init__(self, bot):

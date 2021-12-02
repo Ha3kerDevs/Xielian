@@ -10,17 +10,22 @@ from setup_bot import StellaricBot
 # <:infooo:831769439543623712>\u2800
 
 class Info(commands.Cog, name="Information"):
-  
+  """
+  Information about a user, the bot, etc.
+  """
+
   def __init__(self, bot: StellaricBot):
     self.bot = bot
 
+
+  @commands.cooldown(1, 6, commands.BucketType.user)
   @commands.guild_only()
   @commands.command(
     name="whois",
-    description="Check your or a person's server information.",
-    usage='[user]'
+    help="Check your or a person's server information.",
+    #usage='[user]'
   )
-  async def _whois(self, ctx, user: Optional[discord.Member]):
+  async def _whois(self, ctx, user: Optional[discord.Member] = commands.Option(description="Enter a username/userid")):
     user = user or ctx.author
     checkmark = "<:checkmark:815484488757805076>"
     crossmark = "<:crossmark:815484561180983336>"
@@ -66,8 +71,6 @@ class Info(commands.Cog, name="Information"):
     acknow = ''
     if user.id in config.devs:
       acknow += 'Bot Developer '
-    if any(role.id in config.leader_roles for role in user.roles):
-      acknow += 'Administrator '
 
     embed = discord.Embed(title="User information",
                   colour=0x9CDFFF,
@@ -96,16 +99,15 @@ class Info(commands.Cog, name="Information"):
   @commands.command(
     pass_context=True,
     name="botinfo",
-    description="Shows an information about the bot.",
-    usage=" "
+    help="Shows an information about the bot."
   )
-  @commands.cooldown(1, 3, commands.BucketType.user)
+  @commands.cooldown(1, 6, commands.BucketType.user)
   async def info(self, ctx):
     info = discord.Embed(title="Bot Information", color=0xf8c7c7)
-    info.add_field(name="About", value="Stellaric is a multi-purpose bot made in Python. (more bot info soon.)", inline=False)
+    info.add_field(name="About", value="Stellaric is a multi-purpose bot made exclusively on Stellaric", inline=False)
     info.add_field(name="Developer", value="TheHa3ker#3080", inline=True)
     info.add_field(name="Version", value="1.0", inline=True)
-    info.set_footer(text="Powered by H Λ 3 K Ξ Я™ | Stellaric")
+    info.set_footer(text="Distributed by H Λ 3 K Ξ Я™ | Stellaric")
 
     await ctx.send(embed=info)
 

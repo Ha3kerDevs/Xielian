@@ -32,7 +32,7 @@ class Utility(commands.Cog, name="Utility"):
   )
   @commands.cooldown(1, 6, commands.BucketType.guild)
   @commands.guild_only()
-  @commands.command(help="Nukes a channel. For staff only.\n `s!nuke`")
+  @commands.command(help="Nukes a channel. For staff only.")
   async def nuke(self, ctx):
     exe_start = time.time()
     pos = ctx.channel.position
@@ -70,7 +70,7 @@ class Utility(commands.Cog, name="Utility"):
   @commands.guild_only()
   @commands.command(
     name='timedif',
-    help='For staff only.\n `s!timedif <id1> <id2>`',
+    help='For staff only.\n Usage: `s!timedif <id1> <id2>`',
     aliases=['td']
   )
   async def timedif(
