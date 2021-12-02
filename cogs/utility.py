@@ -95,20 +95,26 @@ class Utility(commands.Cog, name="Utility"):
       embed = discord.Embed(title="Time Difference", description=f"Time: {answer}", color=0xf8c7c7)
       await ctx.send(embed=embed)
 
-  #@commands.has_any_role()
-  #@commands.cooldown(1, 2, commands.BucketType.user)
-  #@commands.command(pass_context=True, invoke_without_command=True,
-  #  name="winlog",
-  #  description="logs the winner of a giveaway.",
-  #  usage="<drop, giveaway or event> <user> <item>"
-  #)
-  #async def _winlog(self, ctx, user: discord.Member, gtype, *, arg):
-    #channel = user.guild.get_channel(831133427159400468)
-  #  text = arg.upper()
+  @commands.has_any_role(
+    793679885285326890,
+    797687618007466015,
+    822428355554312212,
+    823814683973779488,
+    822727647087165461
+  )
+  @commands.cooldown(1, 3, commands.BucketType.user)
+  @commands.command(pass_context=True, invoke_without_command=True,
+    name="winlog",
+    description="logs the winner of a giveaway.\n Usage: <user>, <gtype> and <item>",
+    #usage="<drop, giveaway or event> <user> <item>"
+  )
+  async def _winlog(self, ctx, user: discord.Member, gtype, *, arg):
+    channel = user.guild.get_channel(831133427159400468)
+    text = arg.upper()
 
-  #  await ctx.send(f"[ {user.mention} ] Claimed **{text}** from {gtype}")
-  #  await StellaricUtils.post_winlog_log(gtype = gtype, user=user, text=text, author=ctx.author)
-  #  await ctx.message.delete()
+    await ctx.send(f"[ {user.mention} ] Claimed **{text}** from {gtype}")
+    await StellaricUtils.post_winlog_log(gtype = gtype, user=user, text=text, author=ctx.author)
+    await ctx.message.delete()
 
 
 
