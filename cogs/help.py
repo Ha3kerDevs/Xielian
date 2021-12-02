@@ -39,6 +39,7 @@ class Help(commands.Cog):
         """ Shows this message """
         bottom_info = "Stellaric | bruh"
         bot = ctx.bot
+        prefix = bot.command_prefix
         embed = discord.Embed(title="Stellaric", description="This is description")
 
         def generate_usage(command_name):
