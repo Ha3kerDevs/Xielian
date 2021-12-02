@@ -104,7 +104,8 @@ class Help(commands.Cog):
                 msg = generate_command_list(name)
                 embed.add_field(name=name, value=msg, inline=False)
                 msg = f'{cog.description}\n'
-                embed.set_footer(text=f"{msg} | Stellaric")
+                embed.add_field(value=msg)
+                embed.set_footer(text=bottom_info)
 
             # Must be a command then
             else:
