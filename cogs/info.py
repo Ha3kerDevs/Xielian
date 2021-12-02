@@ -76,7 +76,7 @@ class Info(commands.Cog, name="Information"):
                   colour=0x9CDFFF,
                   timestamp=datetime.datetime.utcnow())
     
-    embed.set_thumbnail(url=user.avatar_url)
+    #embed.set_thumbnail(url=user.avatar_url)
     embed.set_footer(text=f"User ID: {user.id}")
 
     embed.add_field(name="General", value=
