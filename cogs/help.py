@@ -48,7 +48,7 @@ class Help(commands.Cog):
             # iterating trough cogs, gathering descriptions
             cogs_desc = ''
             for cog in self.bot.cogs:
-                cogs_desc += f'•**{cog}**{self.bot.cogs[cog].__doc__}\n'
+                cogs_desc += f'• **{cog}**{self.bot.cogs[cog].__doc__}\n'
 
             # adding 'list' of cogs to embed
             emb.add_field(name='Modules', value=cogs_desc, inline=False)
