@@ -112,10 +112,10 @@ class Utility(commands.Cog, name="Utility"):
   async def _winlog(self, ctx, user: discord.Member, gtype, *, arg):
     channel = user.guild.get_channel(831133427159400468)
     text = arg.upper()
-
     thenlog = discord.Embed(
         title=f"Win log",
-        description=f"**Got Logged:** {str(user)} [{user.id}] for {text}\n"
+        description=f"**Got Logged:** {str(user)} [`{user.id}``]\n"
+        f"**Giveaway Type | Item:** {gtype} | {text}\n"
         f"**Responsible:** {ctx.author.mention}",
         color=0xf8c7c7
       )
