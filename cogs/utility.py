@@ -71,7 +71,7 @@ class Utility(commands.Cog, name="Utility"):
   @commands.command(
     name='timedif',
     help='For staff only.',
-    usage='`s!timedif <id1> <id2>`',
+    usage='<id1> <id2>',
     aliases=['td']
   )
   async def timedif(
@@ -107,7 +107,7 @@ class Utility(commands.Cog, name="Utility"):
   @commands.command(pass_context=True, invoke_without_command=True,
     name="winlog",
     help="logs the winner of a giveaway.",
-    usage='`<user>, <gtype> and <item>`',
+    usage='<user>, <gtype> and <item>',
     #usage="<drop, giveaway or event> <user> <item>"
   )
   async def _winlog(self, ctx, user: discord.Member, gtype, *, arg):

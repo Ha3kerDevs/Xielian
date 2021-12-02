@@ -46,6 +46,7 @@ class Help(commands.Cog):
             """ Generates a string of how to use a command """
             temp = f'{prefix}'
             command = bot.get_command(command_name)
+            usage = command.usage
             # Aliases
             if len(command.aliases) == 0:
                 temp += f'{command_name}'
@@ -57,7 +58,8 @@ class Help(commands.Cog):
             # Parameters
             params = f' '
             for param in command.clean_params:
-                params += f'<{command.clean_params[param]}> '
+                #params += f'<{command.clean_params[param]}> '
+                params += f'{usage}'
             temp += f'{params}'
             return temp
 
