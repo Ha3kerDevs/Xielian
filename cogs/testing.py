@@ -6,12 +6,19 @@ from discord.utils import get
 from setup_bot import StellaricBot
 
 class TestingQ(commands.Cog, command_attrs=dict(hidden=True), name="Testing"):
+  """
+  You've managed to find this cog, congrats, now get out.
+  """
 
   def __init__(self, bot: StellaricBot):
     self.bot = bot
   
 
-  @commands.has_any_role(793679885285326890)
+  @commands.has_any_role(
+    793679885285326890,
+    822727647087165461
+  )
+  @commands.guild_only()
   @commands.command(hidden=True)
   async def slashdelete(self, ctx, gid: int):
     

@@ -67,13 +67,7 @@ class Utility(commands.Cog, name="Utility"):
     )
     await ctx.reply(embed=embed, allowed_mentions=discord.AllowedMentions().none())
   
-  @commands.has_any_role(
-    793679885285326890,
-    797687618007466015,
-    822428355554312212,
-    823814683973779488,
-    822727647087165461
-  )
+  @commands.cooldown(1, 6, commands.BucketType.user)
   @commands.guild_only()
   @commands.command(
     name='timedif',
@@ -117,6 +111,7 @@ class Utility(commands.Cog, name="Utility"):
     826833464401330177
   )
   @commands.cooldown(1, 3, commands.BucketType.user)
+  @commands.guild_only()
   @commands.command(pass_context=True,
     name="winlog",
     help='logs the winner of a giveaway.',
@@ -149,7 +144,7 @@ class Utility(commands.Cog, name="Utility"):
   @commands.guild_only()
   @commands.command(
     name="noreq",
-    help="Testing."
+    help="Announces the 'no requirement' message."
   )
   async def _noreq(self, ctx):
     
@@ -162,10 +157,10 @@ class Utility(commands.Cog, name="Utility"):
     await ctx.send(
     f"╭ {gift} **NO REQUIREMENTS, ENJOY!**\n"
     f"{finalline}\n "
-    f"\u2800{horn} **TIPS:**\n"
-    f"\u2800{dot2} Putting **Stellaric** at the topn of your server list will help you see our pings easily!\n"
-    f"\u2800{dot2} Make sure to **prioritize our pings** so you won't miss any giveaways!\n"
-    f"\u2800{dot2} Be active in Stellaric for more!\n"
+    f"{horn} **TIPS:**\n"
+    f"{dot2} Putting **Stellaric** at the topn of your server list will help you see our pings easily!\n"
+    f"{dot2} Make sure to **prioritize our pings** so you won't miss any giveaways!\n"
+    f"{dot2} Be active in Stellaric for more!\n"
     f"{finalline}\n"
     f"╰ {gift} **Stay in Stellaric for more giveaways like this!**"
     )
