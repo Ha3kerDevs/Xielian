@@ -122,7 +122,7 @@ class Utility(commands.Cog, name="Utility"):
     help='logs the winner of a giveaway.',
     usage='<user>, <giveaway type> and <item>',
   )
-  async def _winlog(self, ctx, user: discord.Member, gtype, *, arg):
+  async def _winlog(self, ctx, user: discord.Member, gtype, *, item):
     channel = user.guild.get_channel(831133427159400468)
     text = arg.upper()
     #thenlog = discord.Embed(
@@ -135,7 +135,7 @@ class Utility(commands.Cog, name="Utility"):
     #auditlog.set_thumbnail(url=user.avatar_url)
     #thenlog.set_footer(text=f"Stellaric Logs | Author ID: {ctx.author.id}")
 
-    await ctx.send(f"[ {user.mention} ] Claimed **{text}** from {gtype}")
+    await ctx.send(f"[ {user.mention} ] Claimed **{item}** from {gtype}")
 
     await ctx.message.delete()
 
