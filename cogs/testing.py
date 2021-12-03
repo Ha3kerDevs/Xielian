@@ -22,7 +22,7 @@ class TestingQ(commands.Cog, command_attrs=dict(hidden=True), name="Testing"):
   @commands.command(hidden=True)
   async def slashdelete(self, ctx, gid: int):
     
-    if author.id == 341837496763678731:
+    if ctx.author.id == 341837496763678731:
       await self.bot.http.bulk_upsert_guild_commands(self.bot.application_id, gid, [])
       return
     else:
@@ -37,7 +37,7 @@ class TestingQ(commands.Cog, command_attrs=dict(hidden=True), name="Testing"):
   @commands.command(hidden=True)
   async def botmsg(self, ctx, msg):
     
-    if author.id == 341837496763678731:
+    if ctx.author.id == 341837496763678731:
       await ctx.send(f"{msg}")
       return
     else:
