@@ -15,23 +15,5 @@ def setup(bot: StellaricBot):
   bot.add_cog(Testing(bot))
 
 
-    line = "<:sl_blueline:915258046660354078>"
-    dot2 = "<:s_dots:915257866468868146>"
-    horn = "<:s_horn:915257645848473650>"
-    gift = "<:s_gift:915257902145617981>"
-
-    finalline = f"{dot2} {line}{line}{line}{line}{line}{line}{line}{line}{line}{line}{line}{line}{line}{line}{line}{line} {dot2}"
-    await ctx.send(
-    f"╭ {gift} **NO REQUIREMENTS, ENJOY!**\n"
-    f"{finalline}\n "
-    f"\u2800{horn} **TIPS:**\n"
-    f"\u2800{dot2} Putting **Stellaric** at the topn of your server list will help you see our pings easily!\n"
-    f"\u2800{dot2} Make sure to **prioritize our pings** so you won't miss any giveaways!\n"
-    f"\u2800{dot2} Be active in Stellaric for more!\n"
-    f"{finalline}\n"
-    f"╰ {gift} **Stay in Stellaric for more giveaways like this!**"
-    )
-    await ctx.message.delete()
-
 
 await self.bot.http.bulk_upsert_guild_commands(self.bot.application_id, gid, [])
