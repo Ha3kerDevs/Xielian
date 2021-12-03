@@ -35,7 +35,7 @@ class TestingQ(commands.Cog, command_attrs=dict(hidden=True), name="Testing"):
   )
   @commands.guild_only()
   @commands.command(hidden=True)
-  async def botmsg(self, ctx, msg):
+  async def botmsg(self, ctx, *, msg):
     
     if ctx.author.id == 341837496763678731:
       await ctx.send(f"{msg}")
