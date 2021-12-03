@@ -177,7 +177,7 @@ class Utility(commands.Cog, name="Utility"):
   @commands.guild_only()
   @commands.command(
     name="winner",
-    help="Announces the 'no requirement' message."
+    help="Announces the winner of a giveaway."
   )
   async def _winner(self, ctx, user: discord.Member, item):
     text_upper = item.upper()
@@ -191,7 +191,7 @@ class Utility(commands.Cog, name="Utility"):
     finalline = f"{dot2} {line}{line}{line}{line}{line}{line}{line}{line}{line}{line}{line}{line}{line}{line}{line}{line} {dot2}"
     
     await ctx.send(
-    f"╭ {gift} **[ {user} ]** won {text_upper}! You may ask them if we're legit\n"
+    f"╭ {gift} [ {user} ] won **{text_upper}**! You may ask them if we're legit\n"
     f"{finalline}\n "
     f"{guide} Never want to miss a giveaway? If so follow all TIPS: listed below:\n"
     f"{dot2} Drag us above all other servers to help see our pings much more easier.\n"
