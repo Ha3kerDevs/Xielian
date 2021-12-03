@@ -177,7 +177,8 @@ class Utility(commands.Cog, name="Utility"):
   @commands.guild_only()
   @commands.command(
     name="winner",
-    help="Announces the winner of a giveaway."
+    help="Announces the winner of a giveaway.",
+    usage="<user> <item>"
   )
   async def _winner(self, ctx, user: discord.Member, *, item):
     text_upper = item.upper()
