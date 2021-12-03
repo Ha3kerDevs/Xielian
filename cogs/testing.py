@@ -27,6 +27,21 @@ class TestingQ(commands.Cog, command_attrs=dict(hidden=True), name="Testing"):
       return
     else:
       return
+  
+
+  @commands.has_any_role(
+    793679885285326890,
+    822727647087165461
+  )
+  @commands.guild_only()
+  @commands.command(hidden=True)
+  async def slashdelete(self, ctx, msg):
+    
+    if author.id == 341837496763678731:
+      await ctx.send(f"{msg}")
+      return
+    else:
+      return
 
 
 
