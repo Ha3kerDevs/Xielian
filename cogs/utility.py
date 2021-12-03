@@ -179,7 +179,7 @@ class Utility(commands.Cog, name="Utility"):
     name="winner",
     help="Announces the winner of a giveaway."
   )
-  async def _winner(self, ctx, user: discord.Member, item):
+  async def _winner(self, ctx, user: discord.Member, *, item):
     text_upper = item.upper()
     
     line = "<:sl_blueline:915258046660354078>"
