@@ -168,7 +168,7 @@ class Utility(commands.Cog, name="Utility"):
     f"{finalline}\n"
     f"╰ {gift} **Stay in Stellaric for more giveaways like this!**"
     )
-    pass
+    await ctx.message.delete()
 
 
 
