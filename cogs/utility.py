@@ -119,7 +119,7 @@ class Utility(commands.Cog, name="Utility"):
   @commands.cooldown(1, 3, commands.BucketType.user)
   @commands.command(pass_context=True,
     name="winlog",
-    help="logs the winner of a giveaway.",
+    help='logs the winner of a giveaway. **NOTE:** When you want to put a space on the `<giveaway type>` section, please put it on quotes. e.g: `s!winlog @TheHa3ker "Chat Event" Godly`',
     usage='<user>, <giveaway type> and <item>',
   )
   async def _winlog(self, ctx, user: discord.Member, gtype, *, arg):
