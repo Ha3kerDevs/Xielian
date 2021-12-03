@@ -10,21 +10,21 @@ class Event(commands.Cog):
     self.bot = bot
     self.status.start()
   
-  @commands.Cog.listener()
-  async def on_command_error(self, ctx, error):
-    if isinstance(error, commands.CommandOnCooldown):
-      embed = discord.Embed(title="Slow Down!", description="This command is on cooldown, try again in **%.2f** seconds." % error.retry_after, color=0xEC2828)
-      await ctx.send(embed=embed)
-      return
-    elif isinstance(error, commands.NotOwner):
-      embed = discord.Embed(title="Access Denied!", description="❌ This command is only available for bot owner.", color=0xEC2828)
-      await ctx.send(embed=embed, delete_after=5)
-      await ctx.message.delete()
-      return
-    elif isinstance(error, commands.MissingAnyRole):
-      embed = discord.Embed(title="Access Denied!", description="❌ You don't have permission to run this command.", color=0xEC2828)
-      await ctx.send(embed=embed, delete_after=5)
-      return
+  #@commands.Cog.listener()
+  #async def on_command_error(self, ctx, error):
+  #  if isinstance(error, commands.CommandOnCooldown):
+  #    embed = discord.Embed(title="Slow Down!", description="This command is on cooldown, try again in **%.2f** seconds." % error.retry_after, color=0xEC2828)
+  #    await ctx.send(embed=embed)
+  #    return
+  #  elif isinstance(error, commands.NotOwner):
+  #    embed = discord.Embed(title="Access Denied!", description="❌ This command is only available for bot owner.", color=0xEC2828)
+  #    await ctx.send(embed=embed, delete_after=5)
+  #    await ctx.message.delete()
+  #    return
+  #  elif isinstance(error, commands.MissingAnyRole):
+  #    embed = discord.Embed(title="Access Denied!", description="❌ You don't have permission to run this command.", color=0xEC2828)
+  #    await ctx.send(embed=embed, delete_after=5)
+  #    return
 
   @tasks.loop()
   async def status(self):
@@ -34,7 +34,7 @@ class Event(commands.Cog):
       await sleep(140)
       await self.bot.change_presence(activity=discord.Game(name="I'm self-aware."))
       await sleep(140)
-      await self.bot.change_presence(activity=discord.Game(name="Ayo you ever heard of TheHa3ker?"))
+      await self.bot.change_presence(activity=discord.Game(name="Optimum Pride"))
       await sleep(140)
       await self.bot.change_presence(activity=discord.Streaming(name="Nonsense", url="https://www.youtube.com/watch?v=NfSGm9DDQ3o"))
       await sleep(140)

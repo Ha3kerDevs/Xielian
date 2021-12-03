@@ -38,7 +38,7 @@ class StellaricBot(commands.Bot):
             slash_command_guilds=[793679694057701406]
         )
         self.cogs_extensions = [
-            #"cogs.event",
+            "cogs.event",
             "cogs.help",
             "cogs.utility",
             "cogs.testing",
