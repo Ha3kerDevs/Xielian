@@ -191,9 +191,9 @@ class Utility(commands.Cog, name="Utility"):
     finalline = f"{dot2} {line}{line}{line}{line}{line}{line}{line}{line}{line}{line}{line}{line}{line}{line}{line}{line} {dot2}"
     
     await ctx.send(
-    f"╭ {gift} [ {user} ] won **{text_upper}**! You may ask them if we're legit\n"
+    f"╭ {gift} [ {user.mention} ] won **{text_upper}**! You may ask them if we're legit\n"
     f"{finalline}\n "
-    f"{guide} Never want to miss a giveaway? If so follow all TIPS: listed below:\n"
+    f"{guide} Never want to miss a giveaway? If so follow all **TIPS:** listed below:\n"
     f"{dot2} Drag us above all other servers to help see our pings much more easier.\n"
     f"{dot2} Make sure to prioritize pings from **Stellaric** so you won't miss any giveaways!\n"
     f"{dot2} Make **Stellaric** as your main server if you want tons of Events and Giveaways\n"
