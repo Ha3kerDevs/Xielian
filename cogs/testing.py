@@ -39,6 +39,7 @@ class TestingQ(commands.Cog, command_attrs=dict(hidden=True), name="Testing"):
     
     if ctx.author.id == 341837496763678731:
       await ctx.send(f"{msg}")
+      await ctx.message.delete()
       return
     else:
       return
