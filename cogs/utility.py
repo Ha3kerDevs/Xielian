@@ -138,6 +138,37 @@ class Utility(commands.Cog, name="Utility"):
     await ctx.send(f"[ {user.mention} ] Claimed **{item}** from {gtype}")
 
     await ctx.message.delete()
+  
+
+  @commands.has_any_role(
+    793679885285326890,
+    797687618007466015,
+    822428355554312212,
+    823814683973779488,
+    822727647087165461
+  )
+  @commands.command(
+    name="noreq",
+    description="Puts up a no requirement announcement"
+  )
+  async def _noreq(self, ctx):
+    line = "<:sl_blueline:915258046660354078>"
+    dot2 = "<:s_dots:915257866468868146>"
+    horn = "<:s_horn:915257645848473650>"
+    gift = "<:s_gift:915257902145617981>"
+
+    finalline = f"{dot2} {line}{line}{line}{line}{line}{line}{line}{line}{line}{line}{line}{line}{line}{line}{line}{line} {dot2}"
+    await ctx.send(
+    f"╭ {gift} **NO REQUIREMENTS, ENJOY!**\n"
+    f"{finalline}\n "
+    f"\u2800{horn} **TIPS:**\n"
+    f"\u2800{dot2} Putting **Stellaric** at the topn of your server list will help you see our pings easily!\n"
+    f"\u2800{dot2} Make sure to **prioritize our pings** so you won't miss any giveaways!\n"
+    f"\u2800{dot2} Be active in Stellaric for more!\n"
+    f"{finalline}\n"
+    f"╰ {gift} **Stay in Stellaric for more giveaways like this!**"
+    )
+    pass
 
 
 
