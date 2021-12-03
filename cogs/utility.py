@@ -180,6 +180,7 @@ class Utility(commands.Cog, name="Utility"):
     help="Announces the 'no requirement' message."
   )
   async def _winner(self, ctx, user: discord.Member, item):
+    text_upper = item.upper()
     
     line = "<:sl_blueline:915258046660354078>"
     dot2 = "<:s_dots:915257866468868146>"
@@ -190,7 +191,7 @@ class Utility(commands.Cog, name="Utility"):
     finalline = f"{dot2} {line}{line}{line}{line}{line}{line}{line}{line}{line}{line}{line}{line}{line}{line}{line}{line} {dot2}"
     
     await ctx.send(
-    f"╭ {gift} **[ {user} ]** won {item}! You may ask them if we're legit\n"
+    f"╭ {gift} **[ {user} ]** won {text_upper}! You may ask them if we're legit\n"
     f"{finalline}\n "
     f"{guide} Never want to miss a giveaway? If so follow all TIPS: listed below:\n"
     f"{dot2} Drag us above all other servers to help see our pings much more easier.\n"
