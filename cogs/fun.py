@@ -14,6 +14,7 @@ class Fun(commands.Cog, name="Fun"):
     self.bot = bot
 
   #@checks.in_right_channel()
+  @commands.cooldown(1, 5, commands.BucketType.user)
   @commands.command(
     name="slap",
     description="Slap someone!",
@@ -30,6 +31,7 @@ class Fun(commands.Cog, name="Fun"):
     await ctx.send(embed=embed)
 
   #@checks.in_right_channel()
+  @commands.cooldown(1, 5, commands.BucketType.user)
   @commands.command(
     name="hug",
     description="Hug someone!",
@@ -46,6 +48,7 @@ class Fun(commands.Cog, name="Fun"):
     await ctx.send(embed=embed)
 
   #@checks.in_right_channel()
+  @commands.cooldown(1, 5, commands.BucketType.user)
   @commands.command(
     name="rps",
     description="Plays rock, paper, scissors with the bot.",
@@ -65,7 +68,7 @@ class Fun(commands.Cog, name="Fun"):
     description="Flips a coin.",
     usage=" "
   )
-  @commands.cooldown(1, 4, commands.BucketType.user)
+  @commands.cooldown(1, 5, commands.BucketType.user)
   async def coinflip(self, ctx):
     coin = ["Heads", "Tails"]
     a_coin = "<a:Coin:812201969040359454>"
