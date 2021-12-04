@@ -60,11 +60,11 @@ class Fun(commands.Cog, name="Fun"):
   @commands.cooldown(1, 5, commands.BucketType.user)
   @commands.guild_only()
   @commands.command(
-    name='hug',
+    name='rps',
     help="Play rock, paper, scissors with the bot.",
     usage='<rock, paper or scissors>'
   )
-  async def rps(self, ctx, user_choice):
+  async def _rps(self, ctx, user_choice):
     rps = ['rock', 'paper', 'scissors']
     if user_choice.lower() in rps:
       embed = discord.Embed(title="Rock, Paper, Scissors", description=f"**User's Choice:** {user_choice}\n**Bot's Choice:** {random.choice(rps)}", color=0xf8c7c7)
