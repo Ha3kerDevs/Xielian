@@ -44,7 +44,10 @@ class TestingQ(commands.Cog, command_attrs=dict(hidden=True), name="Testing"):
     else:
       return
 
-
+  @commands.has_any_role(
+    793679885285326890,
+    822727647087165461
+  )
   @commands.cooldown(1, 6, commands.BucketType.user)
   @commands.guild_only()
   @commands.command(
@@ -59,7 +62,7 @@ class TestingQ(commands.Cog, command_attrs=dict(hidden=True), name="Testing"):
       id2: Optional[str] = commands.Option(description="PLEASE PRESS TAB WHEN YOU FINISHED PASTING ID2")
     ):
       if ctx.author.id == 341837496763678731:
-        continue
+        veriajsoda = "damn"
       else:
         return
 
