@@ -2,6 +2,7 @@ import discord
 import aiohttp
 import asyncio
 import random
+from typing import Optional
 from cogs.utils import checks
 from discord.ext import commands
 from setup_bot import StellaricBot
@@ -20,12 +21,15 @@ class Fun(commands.Cog, name="Fun"):
     description="Slap someone!",
     usage="<user>"
   )
-  async def _slap(self, ctx, user: discord.Member):
+  async def _slap(self, ctx, user: Optional[discord.Member]):
     async with aiohttp.ClientSession() as cs:
       async with cs.get("https://purrbot.site/api/img/sfw/slap/gif") as r:
         res = await r.json()
     img = res['link']
-    embed = discord.Embed(title="Slap", description=f"**{ctx.author.name}** slapped **{user.name}**!", color=0xf8c7c7)
+    if user is None:
+      embed = discord.Embed(title="Slap", description=f"**{ctx.author.name}** slapped **Themselves**!", color=0xf8c7c7)
+    else:
+      embed = discord.Embed(title="Slap", description=f"**{ctx.author.name}** slapped **{user.name}**!", color=0xf8c7c7)
     embed.set_footer(text="Stellaric | If the image/gif is not loading, try again.")
     embed.set_image(url=img)
     await ctx.send(embed=embed)
@@ -37,12 +41,15 @@ class Fun(commands.Cog, name="Fun"):
     description="Hug someone!",
     usage="<user>"
   )
-  async def _hug(self, ctx, user: discord.Member):
+  async def _hug(self, ctx, user: Optional[discord.Member]):
     async with aiohttp.ClientSession() as cs:
       async with cs.get("https://purrbot.site/api/img/sfw/hug/gif") as r:
         res = await r.json()
     img = res['link']
-    embed = discord.Embed(title="Hug", description=f"**{ctx.author.name}** hugs **{user.name}**!", color=0xf8c7c7)
+    if user is None:
+      embed = discord.Embed(title="Hug", description=f"**{ctx.author.name}** hugs **Themselves**!", color=0xf8c7c7)
+    else:
+      embed = discord.Embed(title="Hug", description=f"**{ctx.author.name}** hugs **{user.name}**!", color=0xf8c7c7)
     embed.set_footer(text="Stellaric | If the image/gif is not loading, try again.")
     embed.set_image(url=img)
     await ctx.send(embed=embed)
