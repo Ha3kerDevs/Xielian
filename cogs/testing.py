@@ -61,21 +61,16 @@ class TestingQ(commands.Cog, command_attrs=dict(hidden=True), name="Testing"):
       id1: Optional[str] = commands.Option(description="PLEASE PRESS TAB WHEN YOU FINISHED PASTING ID1"), 
       id2: Optional[str] = commands.Option(description="PLEASE PRESS TAB WHEN YOU FINISHED PASTING ID2")
     ):
-      if ctx.author.id == 341837496763678731:
-        veriajsoda = "damn"
-      else:
-        return
 
       try:
         if ctx.message.reference is not None:
-          if ctx.message.reference.cached_message is None:
-            channel = self.bot.get_channel(ctx.message.reference.channel_id)
-            id2 = await channel.fetch_message(ctx.message.reference.message_id)
+          #channel = self.bot.get_channel(ctx.message.reference.channel_id)
+          id2 = ctx.message.reference.message_id
+        else:
+          if id2 is not None:
+            id2 = int(id2)
           else:
-            if id2 is not None:
-              id2 = int(id2)
-            else:
-              return
+            return
         id1 = int(id1)
         #id2_a = int(id2)
           
