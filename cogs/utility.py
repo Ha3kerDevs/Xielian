@@ -46,7 +46,7 @@ class Utility(commands.Cog, name="Utility"):
     await ctx.channel.delete(reason=f"{ctx.channel.name} has been nuked")
     channel = await ctx.channel.clone()
     await channel.edit(position=pos)
-    await channel.send(f"Nuke successful. [Execution time: {time.time() - exe_start}]", delete_after=11)
+    await channel.send(f"Nuke successful. [Execution time: {time.time() - exe_start}]", delete_after=5)
 
   #@commands.has_any_role()
   @commands.cooldown(1, 6, commands.BucketType.user)
@@ -70,19 +70,29 @@ class Utility(commands.Cog, name="Utility"):
   @commands.cooldown(1, 6, commands.BucketType.user)
   @commands.guild_only()
   @commands.command(
+    hidden=True,
     name='timedif',
-    help='For staff only.',
+    help="Check the message id's time difference.",
     usage='<id1> <id2>',
     aliases=['td']
   )
-  async def timedif(
+  async def _timedif(
       self, ctx, 
       id1: Optional[str] = commands.Option(description="PLEASE PRESS TAB WHEN YOU FINISHED PASTING ID1"), 
       id2: Optional[str] = commands.Option(description="PLEASE PRESS TAB WHEN YOU FINISHED PASTING ID2")
     ):
+
       try:
+        if ctx.message.reference is not None:
+          #channel = self.bot.get_channel(ctx.message.reference.channel_id)
+          id2 = ctx.message.reference.message_id
+        else:
+          if id2 is not None:
+            id2 = int(id2)
+          else:
+            return
         id1 = int(id1)
-        id2 = int(id2)
+        #id2_a = int(id2)
           
       except:
           await ctx.send("Check your message ID's! They are incorrect!")
