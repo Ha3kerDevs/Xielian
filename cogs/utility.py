@@ -70,7 +70,6 @@ class Utility(commands.Cog, name="Utility"):
   @commands.cooldown(1, 6, commands.BucketType.user)
   @commands.guild_only()
   @commands.command(
-    hidden=True,
     name='timedif',
     help="Check the message id's time difference.",
     usage='<id1> <id2>',
