@@ -1,5 +1,6 @@
 import discord
 import datetime
+import asyncio
 from cogs.utils import checks, config
 from discord.ext import commands
 from typing import Optional
@@ -96,9 +97,9 @@ class TestingQ(commands.Cog, command_attrs=dict(hidden=True), name="Testing"):
   async def timetest(self, ctx, time: int):
     
     if ctx.author.id == 341837496763678731:
-      await ctx.send(f"Text 1 Done. Timer: {time}")
-      await asyncio.sleep(10)
-      await ctx.send(f"Text 2 Done. Timer: {time}")
+      await ctx.send(f"Text 1 Done. Timer: `{time}`")
+      await asyncio.sleep(time)
+      await ctx.send(f"Text 2 Done. Timer: `{time}`")
       return
     else:
       return
