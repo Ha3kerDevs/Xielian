@@ -56,6 +56,23 @@ class Fun(commands.Cog, name="Fun"):
     embed.set_image(url=img)
     await ctx.send(embed=embed)
 
+  @commands.cooldown(1, 5, commands.BucketType.user)
+  @commands.guild_only()
+  @commands.command(
+    name='cuddle',
+    help="cuddle someone!",
+    usage='<user>'
+  )
+  async def _cuddle(self, ctx, user: discord.Member):
+    async with aiohttp.ClientSession() as cs:
+      async with cs.get("https://purrbot.site/api/img/sfw/cuddle/gif") as r:
+        res = await r.json()
+    img = res['link']
+    embed = discord.Embed(title="Cuddle", description=f"**{ctx.author.name}** cuddles **{user.name}**!", color=0xf8c7c7)
+    embed.set_footer(text="Stellaric | If the image/gif is not loading, try again.")
+    embed.set_image(url=img)
+    await ctx.send(embed=embed)
+
   #@checks.in_right_channel()
   @commands.cooldown(1, 5, commands.BucketType.user)
   @commands.guild_only()
