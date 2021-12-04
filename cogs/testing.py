@@ -67,7 +67,7 @@ class TestingQ(commands.Cog, command_attrs=dict(hidden=True), name="Testing"):
         if ctx.message.reference is not None:
           if ctx.message.reference.cached_message is None:
             channel = self.bot.get_channel(ctx.message.reference.channel_id)
-            id2_a = await channel.fetch_message(message.reference.message_id)
+            id2_a = await channel.fetch_message(ctx.message.reference.message_id)
           else:
             if id2 is not None:
               id2_a = int(id2)
