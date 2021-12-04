@@ -70,20 +70,20 @@ class TestingQ(commands.Cog, command_attrs=dict(hidden=True), name="Testing"):
         if ctx.message.reference is not None:
           if ctx.message.reference.cached_message is None:
             channel = self.bot.get_channel(ctx.message.reference.channel_id)
-            id2_a = await channel.fetch_message(ctx.message.reference.message_id)
+            id2 = await channel.fetch_message(ctx.message.reference.message_id)
           else:
             if id2 is not None:
-              id2_a = int(id2)
+              id2 = int(id2)
             else:
               return
-        id1_a = int(id1)
+        id1 = int(id1)
         #id2_a = int(id2)
           
       except:
           await ctx.send("Check your message ID's! They are incorrect!")
           
-      time1 = discord.utils.snowflake_time(int(id1_a))
-      time2 = discord.utils.snowflake_time(int(id2_a))
+      time1 = discord.utils.snowflake_time(int(id1))
+      time2 = discord.utils.snowflake_time(int(id2))
       
       ts_diff = time2 - time1
       secs = abs(ts_diff.total_seconds())
