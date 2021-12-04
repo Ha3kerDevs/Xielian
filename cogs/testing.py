@@ -54,8 +54,7 @@ class TestingQ(commands.Cog, command_attrs=dict(hidden=True), name="Testing"):
   @commands.command(
     hidden=True,
     name='tdtest',
-    help='TESTING.',
-    aliases=['td']
+    help='TESTING.'
   )
   async def tdtest(
       self, ctx, 
