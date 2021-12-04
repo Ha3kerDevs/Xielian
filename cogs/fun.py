@@ -16,10 +16,11 @@ class Fun(commands.Cog, name="Fun"):
 
   #@checks.in_right_channel()
   @commands.cooldown(1, 5, commands.BucketType.user)
+  @commands.guild_only()
   @commands.command(
-    name="slap",
-    description="Slap someone!",
-    usage="<user>"
+    name='slap',
+    help="Slap someone or yourself!",
+    usage='(user)'
   )
   async def _slap(self, ctx, user: Optional[discord.Member]):
     async with aiohttp.ClientSession() as cs:
@@ -36,10 +37,11 @@ class Fun(commands.Cog, name="Fun"):
 
   #@checks.in_right_channel()
   @commands.cooldown(1, 5, commands.BucketType.user)
+  @commands.guild_only()
   @commands.command(
-    name="hug",
-    description="Hug someone!",
-    usage="<user>"
+    name='hug',
+    help="Hug someone or yourself!",
+    usage='(user)'
   )
   async def _hug(self, ctx, user: Optional[discord.Member]):
     async with aiohttp.ClientSession() as cs:
@@ -56,10 +58,11 @@ class Fun(commands.Cog, name="Fun"):
 
   #@checks.in_right_channel()
   @commands.cooldown(1, 5, commands.BucketType.user)
+  @commands.guild_only()
   @commands.command(
-    name="rps",
-    description="Plays rock, paper, scissors with the bot.",
-    usage="<rock, paper or scissors>"
+    name='hug',
+    help="Play rock, paper, scissors with the bot.",
+    usage='<rock, paper or scissors>'
   )
   async def rps(self, ctx, user_choice):
     rps = ['rock', 'paper', 'scissors']
@@ -70,13 +73,13 @@ class Fun(commands.Cog, name="Fun"):
       await ctx.reply('This command only works with rock, paper, or scissors.', delete_after=6, allowed_mentions=discord.AllowedMentions().none())
 
   #@checks.in_right_channel()
+  @commands.guild_only()
   @commands.command(
-    name="coinflip",
-    description="Flips a coin.",
-    usage=" "
+    name='coinflip',
+    help="Flip a coin!"
   )
   @commands.cooldown(1, 5, commands.BucketType.user)
-  async def coinflip(self, ctx):
+  async def _coinflip(self, ctx):
     coin = ["Heads", "Tails"]
     a_coin = "<a:Coin:812201969040359454>"
     embed = discord.Embed(title=f"{a_coin} Coinflip", description="Flipping..", color=0xF77733)
