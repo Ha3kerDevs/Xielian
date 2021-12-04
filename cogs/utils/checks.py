@@ -5,8 +5,8 @@ from discord.ext import commands
 
 def in_right_channel():
   async def predicate(ctx):
-    if ctx.channel.id in config.channel_ids \
-     and any(role.id in config.leader_roles for role in ctx.author.roles):
+    if ctx.channel.id in config.channel_ids:
+     #and any(role.id in config.leader_roles for role in ctx.author.roles):
       return await ctx.send("Uh oh! Looks like you runned the command on the wrong channel")
     else:
       return True

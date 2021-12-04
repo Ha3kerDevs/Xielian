@@ -158,7 +158,7 @@ class Utility(commands.Cog, name="Utility"):
     f"╭ {gift} **NO REQUIREMENTS, ENJOY!**\n"
     f"{finalline}\n "
     f"{horn} **TIPS:**\n"
-    f"{dot2} Putting **Stellaric** at the topn of your server list will help you see our pings easily!\n"
+    f"{dot2} Putting **Stellaric** at the top of your server list will help you see our pings easily!\n"
     f"{dot2} Make sure to **prioritize our pings** so you won't miss any giveaways!\n"
     f"{dot2} Be active in Stellaric for more!\n"
     f"{finalline}\n"
