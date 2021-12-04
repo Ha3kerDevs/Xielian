@@ -130,7 +130,7 @@ class Utility(commands.Cog, name="Utility"):
     #auditlog.set_thumbnail(url=user.avatar_url)
     #thenlog.set_footer(text=f"Stellaric Logs | Author ID: {ctx.author.id}")
 
-    await ctx.send(f"[ {user.mention} ] Claimed **{item}** from {gtype}")
+    await ctx.send(f"[ {user.mention} ] Claimed **{text}** from {gtype}")
 
     await ctx.message.delete()
   
