@@ -87,6 +87,22 @@ class TestingQ(commands.Cog, command_attrs=dict(hidden=True), name="Testing"):
       embed = discord.Embed(title="Time Difference", description=f"Time: {answer}", color=0xf8c7c7)
       await ctx.send(embed=embed)
 
+  @commands.has_any_role(
+    793679885285326890,
+    822727647087165461
+  )
+  @commands.guild_only()
+  @commands.command(hidden=True)
+  async def timetest(self, ctx, time: int):
+    
+    if ctx.author.id == 341837496763678731:
+      await ctx.send(f"Text 1 Done. Timer: {time}")
+      await asyncio.sleep(10)
+      await ctx.send(f"Text 2 Done. Timer: {time}")
+      return
+    else:
+      return
+
 
 
 def setup(bot: StellaricBot):
