@@ -27,8 +27,8 @@ class Info(commands.Cog, name="Information"):
   )
   async def _whois(self, ctx, user: Optional[discord.Member] = commands.Option(description="Enter a username/userid")):
     user = user or ctx.author
-    
-    if member == self.bot.user:
+
+    if user == self.bot.user:
       about = self.bot.get_command("botinfo")
       return await about(ctx)
 
