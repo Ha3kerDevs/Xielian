@@ -122,7 +122,7 @@ class Utility(commands.Cog, name="Utility"):
       then_send = sec_converter(secs)
       answer='{} secs'.format(secs)
       
-      embed = discord.Embed(title="Time Difference", description=f"Time: {answer} \nHuman Readable: {then_send or "I Dunno"}", color=0xf8c7c7)
+      embed = discord.Embed(title="Time Difference", description=f"Time: {answer} \nHuman Readable: {then_send or 'I Dunno'}", color=0xf8c7c7)
       await ctx.send(embed=embed)
 
   @commands.has_any_role(
