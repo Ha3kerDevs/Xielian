@@ -41,7 +41,9 @@ class Info(commands.Cog, name="Information"):
 
     acknow = ''
     if user.id in config.devs:
-      acknow += 'Bot Developer '
+      acknow += 'Bot Developer'
+    elif user.id == 877743211337117706:
+      acknow += 'This person is cool <a:catnod:894835717681852417>'
 
     embed = discord.Embed(
       title="User information",
