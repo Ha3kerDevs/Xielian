@@ -11,6 +11,9 @@ from setup_bot import StellaricBot
 
 
 class Fun(commands.Cog, name="Fun"):
+  """
+  Fun for the whole family!
+  """
   
   def __init__(self, bot: StellaricBot):
     self.bot = bot

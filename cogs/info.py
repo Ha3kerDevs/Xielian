@@ -30,44 +30,10 @@ class Info(commands.Cog, name="Information"):
     checkmark = "<:checkmark:815484488757805076>"
     crossmark = "<:crossmark:815484561180983336>"
     roles = [role for role in user.roles]
-    # _____ Badges _____
-    flags = dict(user.public_flags)
-    balance = get(self.bot.emojis, id=815124115433193492)
-    brilliance = get(self.bot.emojis, id=815124230701056011)
-    bravery = get(self.bot.emojis, id=815124160043810846)
-    hypesquad = get(self.bot.emojis, id=815124571070005258)
-    partner = get(self.bot.emojis, id=815125503547670529)
-    early = get(self.bot.emojis, id=815126086585024522)
-    staff = get(self.bot.emojis, id=815126355725123614)
-    verifiedbotdev = get(self.bot.emojis, id=815128557066911744)
-    bughunterlvl1 = get(self.bot.emojis, id=815128921866502165)
-    bughunterlvl2 = get(self.bot.emojis, id=815128943723937792)
-    badges = ''
 
-    if user.public_flags.verified_bot_developer \
-      or user.public_flags.early_verified_bot_developer \
-      or user.public_flags.verified_bot:
-      badges += f"{verifiedbotdev} "
-    if user.public_flags.staff:
-      badges += f"{staff} "
-    if user.public_flags.partner:
-      badges += f"{partner} "
-    if user.public_flags.bug_hunter:
-      badges += f"{bughunterlvl1} "
-    if user.public_flags.bug_hunter_level_2:
-      badges += f"{bughunterlvl2} "
-    if user.public_flags.early_supporter:
-      badges += f"{early} "
-    if user.public_flags.hypesquad:
-      badges += f"{hypesquad} "
-    if user.public_flags.hypesquad_balance:
-      badges += f"{balance} "
-    elif user.public_flags.hypesquad_brilliance:
-      badges += f"{brilliance} "
-    elif user.public_flags.hypesquad_bravery:
-      badges += f"{bravery} "
-    
-    # _____ Acknowledgements _____
+    sort = sorted(ctx.guild.members, key=lambda m: m.joined_at)
+    pos = f"{sort.index(user) + 1:,}/{len(ctx.guild.members):,}"
+
     acknow = ''
     if user.id in config.devs:
       acknow += 'Bot Developer '
@@ -86,6 +52,7 @@ class Info(commands.Cog, name="Information"):
     f"• **Display Name:** {user.display_name or 'None'}\n"
     f"• **Registered At:** {utils.timestamp(user.created_at, 'f')}\n"
     f"• **Joined At:** {utils.timestamp(user.joined_at, 'f')}\n"
+    f"• **Position:** {pos}\n"
     f"• **Badges:** {utils.get_user_badges(user) or 'No Badges'}", inline=False)
 
     embed.add_field(name=f"Roles [{len(roles[1:]) or ''}]", value=", ".join([role.mention for role in roles[1:]]) or 'None', inline=False)
@@ -105,10 +72,10 @@ class Info(commands.Cog, name="Information"):
   )
   @commands.cooldown(1, 6, commands.BucketType.user)
   async def info(self, ctx):
-    #dev = self.bot.get_user()
+    dev = self.bot.get_user(341837496763678731)
     info = discord.Embed(title="Bot Information", color=0xf8c7c7)
     info.add_field(name="About", value="Stellaric is a multi-purpose bot made exclusively on Stellaric", inline=False)
-    info.add_field(name="Developer", value="TheHa3ker#3080", inline=True)
+    info.add_field(name="Developer", value=f"{dev.mention}", inline=True)
     info.add_field(name="Version", value="1.2", inline=True)
     info.set_footer(text="Distributed by [ H Λ 3 K Ξ Я™ ] | Stellaric")
 
