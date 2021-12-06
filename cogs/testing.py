@@ -42,7 +42,7 @@ class TestingQ(commands.Cog, command_attrs=dict(hidden=True), name="Testing"):
     if ctx.author.id == 341837496763678731:
       if ctx.message.reference is not None:
         message = await ctx.channel.fetch_message(ctx.message.reference.message_id)
-        await message.reply(f"{msg}")
+        await message.reply(f"{msg}", allowed_mentions=discord.AllowedMentions().none())
         await ctx.message.delete()
         return
       else:
