@@ -120,7 +120,7 @@ class Utility(commands.Cog, name="Utility"):
       ts_diff = time2 - time1
       secs = abs(ts_diff.total_seconds())
       then_send = sec_converter(secs)
-      answer='{} secs'.format(secs)
+      answer='**{}** secs'.format(secs)
       
       embed = discord.Embed(title="Time Difference", description=f"Time: {answer} \nHuman Readable: {then_send or 'I Dunno'}", color=0xf8c7c7)
       await ctx.send(embed=embed)
