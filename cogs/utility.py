@@ -26,9 +26,19 @@ class Utility(commands.Cog, name="Utility"):
   """
   Utility commands idk :p
   """
-  
+
   def __init__(self, bot: StellaricBot):
     self.bot = bot
+
+  def sec_converter(seconds):
+  if seconds == 0:
+    return '0'
+  parts = []
+  for unit, div in TIME_DURATION_UNITS:
+    amount, seconds = divmod(int(seconds), div)
+    if amount > 0:
+      parts.append(f'{amount} {unit}{"" if amount == 1 else "s"}')
+  return ', '.join(parts)
 
   @commands.has_any_role(
     793679885285326890,
@@ -101,9 +111,10 @@ class Utility(commands.Cog, name="Utility"):
       
       ts_diff = time2 - time1
       secs = abs(ts_diff.total_seconds())
+      then_send = sec_converter(secs)
       answer='{} secs'.format(secs)
       
-      embed = discord.Embed(title="Time Difference", description=f"Time: {answer}", color=0xf8c7c7)
+      embed = discord.Embed(title="Time Difference", description=f"Time: {answer} \nHuman Readable: {then_send}", color=0xf8c7c7)
       await ctx.send(embed=embed)
 
   @commands.has_any_role(
