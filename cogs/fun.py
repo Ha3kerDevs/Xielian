@@ -12,7 +12,7 @@ from setup_bot import StellaricBot
 
 class Fun(commands.Cog, name="Fun"):
   """
-  Fun for the whole family!
+  Fun commands. That's it I don't know what to say here.
   """
   
   def __init__(self, bot: StellaricBot):
@@ -70,6 +70,41 @@ class Fun(commands.Cog, name="Fun"):
       res = await r.json()
     img = res['link']
     embed = discord.Embed(title="Cuddle", description=f"**{ctx.author.name}** cuddles **{user.name}**!", color=0xf8c7c7)
+    embed.set_footer(text="Stellaric | If the image/gif is not loading, try again.")
+    embed.set_image(url=img)
+    await ctx.send(embed=embed)
+
+  @commands.cooldown(1, 5, commands.BucketType.user)
+  @commands.guild_only()
+  @commands.command(
+    name='pat',
+    help="Pat someone or yourself!",
+    usage='(user)'
+  )
+  async def _pat(self, ctx, user: Optional[discord.Member]):
+    async with self.bot.session.get("https://purrbot.site/api/img/sfw/pat/gif") as r:
+      res = await r.json()
+    img = res['link']
+    if user is None:
+      embed = discord.Embed(title="Pat", description=f"**{ctx.author.name}** pats **Themselves**!", color=0xf8c7c7)
+    else:
+      embed = discord.Embed(title="Pat", description=f"**{ctx.author.name}** pats **{user.name}**!", color=0xf8c7c7)
+    embed.set_footer(text="Stellaric | If the image/gif is not loading, try again.")
+    embed.set_image(url=img)
+    await ctx.send(embed=embed)
+
+  @commands.cooldown(1, 5, commands.BucketType.user)
+  @commands.guild_only()
+  @commands.command(
+    name='kiss',
+    help="kiss someone!",
+    usage='<user>'
+  )
+  async def _kiss(self, ctx, user: discord.Member):
+    async with self.bot.session.get("https://purrbot.site/api/img/sfw/kiss/gif") as r:
+      res = await r.json()
+    img = res['link']
+    embed = discord.Embed(title="kiss", description=f"**{ctx.author.name}** kisses **{user.name}**!", color=0xf8c7c7)
     embed.set_footer(text="Stellaric | If the image/gif is not loading, try again.")
     embed.set_image(url=img)
     await ctx.send(embed=embed)
