@@ -86,7 +86,7 @@ class Info(commands.Cog, name="Information"):
     f"• **Display Name:** {user.display_name or 'None'}\n"
     f"• **Registered At:** {utils.timestamp(user.created_at, 'f')}\n"
     f"• **Joined At:** {utils.timestamp(user.joined_at, 'f')}\n"
-    f"• **Badges:** {utils.get_user_badges(user) or "No Badges"}", inline=False)
+    f"• **Badges:** {utils.get_user_badges(user) or 'No Badges'}", inline=False)
 
     embed.add_field(name=f"Roles [{len(roles[1:]) or ''}]", value=", ".join([role.mention for role in roles[1:]]) or 'None', inline=False)
     
