@@ -20,6 +20,15 @@ from setup_bot import StellaricBot
 # 823372056409800724 = Moderator
 # 826833464401330177 = Helper
 
+TIME_DURATION_UNITS = (
+  ('month', 2629800),
+  ('week', 604800), # 60*60*24*7
+  ('day', 86400), # 60*60*24
+  ('hour', 3600), # 60*60
+  ('min', 60), 
+  ('sec', 1)
+)
+
 def sec_converter(seconds):
   if seconds == 0:
     return '0'
