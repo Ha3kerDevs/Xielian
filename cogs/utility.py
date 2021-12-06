@@ -36,7 +36,7 @@ def sec_converter(seconds):
   for unit, div in TIME_DURATION_UNITS:
     amount, seconds = divmod(int(seconds), div)
     if amount > 0:
-      parts.append(f'{amount} {unit}{"" if amount == 1 else "s"}')
+      parts.append(f'**{amount}** {unit}{"" if amount == 1 else "s"}')
   return ', '.join(parts)
 
 # <a:utility:831769452344639498>\u2800
@@ -122,7 +122,7 @@ class Utility(commands.Cog, name="Utility"):
       then_send = sec_converter(secs)
       answer='{} secs'.format(secs)
       
-      embed = discord.Embed(title="Time Difference", description=f"Time: {answer} \nHuman Readable: {then_send}", color=0xf8c7c7)
+      embed = discord.Embed(title="Time Difference", description=f"Time: {answer} \nHuman Readable: {then_send or "I Dunno"}", color=0xf8c7c7)
       await ctx.send(embed=embed)
 
   @commands.has_any_role(
