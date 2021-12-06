@@ -67,6 +67,6 @@ class StellaricBot(commands.Bot):
         super().run(bot_token, reconnect=True)
         
     async def close(self):
-        await super().close()
         await self.session.close()
+        await super().close()
         print("Closed bot.")

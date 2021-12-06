@@ -2,6 +2,7 @@ import discord
 import datetime
 import time
 import typing
+from cogs.utils import config
 from discord.ext import commands
 from setup_bot import StellaricBot
 
@@ -22,7 +23,7 @@ def get_user_badges(user: discord.Member, fetched_user: discord.User = None):
     flags = dict(user.public_flags)
 
     user_flags = []
-    for flag, text in constants.USER_FLAGS.items():
+    for flag, text in config.USER_FLAGS.items():
         try:
             if flags[flag]:
                 user_flags.append(text)
