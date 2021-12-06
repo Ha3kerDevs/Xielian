@@ -40,9 +40,15 @@ class TestingQ(commands.Cog, command_attrs=dict(hidden=True), name="Testing"):
   async def botmsg(self, ctx, *, msg):
     
     if ctx.author.id == 341837496763678731:
-      await ctx.send(f"{msg}")
-      await ctx.message.delete()
-      return
+      if ctx.message.reference is not None:
+        message = await ctx.channel.fetch_message(ctx.message.reference.message_id)
+        await message.reply(f"{msg}")
+        await ctx.message.delete()
+        return
+      else:
+        await ctx.send(f"{msg}")
+        await ctx.message.delete()
+        return
     else:
       return
 
