@@ -1,5 +1,6 @@
 import discord
 import os
+import aiohttp
 from dotenv import load_dotenv
 from discord.ext import commands
 
@@ -46,6 +47,7 @@ class StellaricBot(commands.Bot):
             "cogs.info"
         ]
         self.loop.create_task(self.load_extensions())
+        self.session = aiohttp.ClientSession()
 
     async def load_extensions(self):
         for ext in self.cogs_extensions:

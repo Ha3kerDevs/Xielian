@@ -9,6 +9,7 @@ from setup_bot import StellaricBot
   
 # <:banaa:831766861615333387>\u2800
 
+
 class Fun(commands.Cog, name="Fun"):
   
   def __init__(self, bot: StellaricBot):
@@ -23,9 +24,8 @@ class Fun(commands.Cog, name="Fun"):
     usage='(user)'
   )
   async def _slap(self, ctx, user: Optional[discord.Member]):
-    async with aiohttp.ClientSession() as cs:
-      async with cs.get("https://purrbot.site/api/img/sfw/slap/gif") as r:
-        res = await r.json()
+    async with self.bot.session.get("https://purrbot.site/api/img/sfw/slap/gif") as r:
+      res = await r.json()
     img = res['link']
     if user is None:
       embed = discord.Embed(title="Slap", description=f"**{ctx.author.name}** slapped **Themselves**!", color=0xf8c7c7)
@@ -44,9 +44,8 @@ class Fun(commands.Cog, name="Fun"):
     usage='(user)'
   )
   async def _hug(self, ctx, user: Optional[discord.Member]):
-    async with aiohttp.ClientSession() as cs:
-      async with cs.get("https://purrbot.site/api/img/sfw/hug/gif") as r:
-        res = await r.json()
+    async with self.bot.session.get("https://purrbot.site/api/img/sfw/hug/gif") as r:
+      res = await r.json()
     img = res['link']
     if user is None:
       embed = discord.Embed(title="Hug", description=f"**{ctx.author.name}** hugs **Themselves**!", color=0xf8c7c7)
@@ -64,9 +63,8 @@ class Fun(commands.Cog, name="Fun"):
     usage='<user>'
   )
   async def _cuddle(self, ctx, user: discord.Member):
-    async with aiohttp.ClientSession() as cs:
-      async with cs.get("https://purrbot.site/api/img/sfw/cuddle/gif") as r:
-        res = await r.json()
+    async with self.bot.session.get("https://purrbot.site/api/img/sfw/cuddle/gif") as r:
+      res = await r.json()
     img = res['link']
     embed = discord.Embed(title="Cuddle", description=f"**{ctx.author.name}** cuddles **{user.name}**!", color=0xf8c7c7)
     embed.set_footer(text="Stellaric | If the image/gif is not loading, try again.")
