@@ -3,6 +3,7 @@ import datetime
 import time
 import typing
 from discord.ext import commands
+from setup_bot import StellaricBot
 
 
 #async def post_winlog_log(gtype, user, text, author):
@@ -17,6 +18,17 @@ from discord.ext import commands
 #  auditlog.set_footer(text=f"Stellaric Logs | Author ID: {author.id}")
 #  await ctx.send(embed = auditlog)
 
+def get_user_badges(user: discord.Member, bot: StellaricBot, fetched_user: discord.User = None):
+    flags = dict(user.public_flags)
+
+    user_flags = []
+    for flag, text in constants.USER_FLAGS.items():
+        try:
+            if flags[flag]:
+                user_flags.append(text)
+        except KeyError:
+            continue
+    return ' '.join(user_flags) if user_flags else None
 
 def timestamp(times: datetime.datetime, format: typing.Optional[str] = None):
     if format:

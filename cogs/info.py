@@ -31,7 +31,7 @@ class Info(commands.Cog, name="Information"):
     crossmark = "<:crossmark:815484561180983336>"
     roles = [role for role in user.roles]
     # _____ Badges _____
-
+    flags = dict(user.public_flags)
     balance = get(self.bot.emojis, id=815124115433193492)
     brilliance = get(self.bot.emojis, id=815124230701056011)
     bravery = get(self.bot.emojis, id=815124160043810846)
@@ -72,11 +72,13 @@ class Info(commands.Cog, name="Information"):
     if user.id in config.devs:
       acknow += 'Bot Developer '
 
-    embed = discord.Embed(title="User information",
-                  colour=0x9CDFFF,
-                  timestamp=datetime.datetime.utcnow())
-    
-    #embed.set_thumbnail(url=user.avatar_url)
+    embed = discord.Embed(
+      title="User information",
+      colour=0x9CDFFF,
+      timestamp=datetime.datetime.utcnow()
+    )
+
+    embed.set_thumbnail(url=user.display_avatar.url)
     embed.set_footer(text=f"User ID: {user.id}")
 
     embed.add_field(name="General", value=
@@ -84,7 +86,7 @@ class Info(commands.Cog, name="Information"):
     f"• **Display Name:** {user.display_name or 'None'}\n"
     f"• **Registered At:** {utils.timestamp(user.created_at, 'f')}\n"
     f"• **Joined At:** {utils.timestamp(user.joined_at, 'f')}\n"
-    f"• **Badges:** {badges or 'None'}", inline=False)
+    f"• **Badges:** {utils.get_user_badges(user) or "No Badges"}", inline=False)
 
     embed.add_field(name=f"Roles [{len(roles[1:]) or ''}]", value=", ".join([role.mention for role in roles[1:]]) or 'None', inline=False)
     
@@ -103,11 +105,12 @@ class Info(commands.Cog, name="Information"):
   )
   @commands.cooldown(1, 6, commands.BucketType.user)
   async def info(self, ctx):
+    #dev = self.bot.get_user()
     info = discord.Embed(title="Bot Information", color=0xf8c7c7)
     info.add_field(name="About", value="Stellaric is a multi-purpose bot made exclusively on Stellaric", inline=False)
     info.add_field(name="Developer", value="TheHa3ker#3080", inline=True)
-    info.add_field(name="Version", value="1.0", inline=True)
-    info.set_footer(text="Distributed by H Λ 3 K Ξ Я™ | Stellaric")
+    info.add_field(name="Version", value="1.2", inline=True)
+    info.set_footer(text="Distributed by [ H Λ 3 K Ξ Я™ ] | Stellaric")
 
     await ctx.send(embed=info)
 
