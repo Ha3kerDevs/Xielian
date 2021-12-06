@@ -18,7 +18,7 @@ from setup_bot import StellaricBot
 #  auditlog.set_footer(text=f"Stellaric Logs | Author ID: {author.id}")
 #  await ctx.send(embed = auditlog)
 
-def get_user_badges(user: discord.Member, bot: StellaricBot, fetched_user: discord.User = None):
+def get_user_badges(user: discord.Member, fetched_user: discord.User = None):
     flags = dict(user.public_flags)
 
     user_flags = []
