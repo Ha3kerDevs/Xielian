@@ -20,6 +20,15 @@ from setup_bot import StellaricBot
 # 823372056409800724 = Moderator
 # 826833464401330177 = Helper
 
+def sec_converter(seconds):
+  if seconds == 0:
+    return '0'
+  parts = []
+  for unit, div in TIME_DURATION_UNITS:
+    amount, seconds = divmod(int(seconds), div)
+    if amount > 0:
+      parts.append(f'{amount} {unit}{"" if amount == 1 else "s"}')
+  return ', '.join(parts)
 
 # <a:utility:831769452344639498>\u2800
 class Utility(commands.Cog, name="Utility"):
@@ -29,16 +38,6 @@ class Utility(commands.Cog, name="Utility"):
 
   def __init__(self, bot: StellaricBot):
     self.bot = bot
-
-  def sec_converter(seconds):
-    if seconds == 0:
-      return '0'
-    parts = []
-    for unit, div in TIME_DURATION_UNITS:
-      amount, seconds = divmod(int(seconds), div)
-      if amount > 0:
-        parts.append(f'{amount} {unit}{"" if amount == 1 else "s"}')
-    return ', '.join(parts)
 
   @commands.has_any_role(
     793679885285326890,
