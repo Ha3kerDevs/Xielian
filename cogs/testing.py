@@ -9,7 +9,7 @@ from setup_bot import StellaricBot
 
 class EmbedFlags(commands.FlagConverter, prefix='--', delimiter=' '):
   title: str = ""
-  description: str = ""
+  description: str = "".strip('"')
   image: str = ""
   footer: str = ""
   colour: int = 0xf8c7c7
@@ -120,8 +120,7 @@ class TestingQ(commands.Cog, command_attrs=dict(hidden=True), name="Testing"):
                                           'footer': {'text': f'{flags.footer}'},
                                           'color': flags.colour,
                                               })
-          andfinally = embed.strip('"')
-          await ctx.send(embed=andfinally)
+          await ctx.send(embed=embed)
 
 
 
