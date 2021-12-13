@@ -6,8 +6,7 @@ from discord.ext import commands
 from typing import Optional
 from discord.utils import get
 from setup_bot import StellaricBot
-from backports import configparser
-
+import configparser
 
 class TestingQ(commands.Cog, command_attrs=dict(hidden=True), name="Testing"):
   """
