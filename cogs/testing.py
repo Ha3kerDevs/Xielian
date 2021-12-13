@@ -8,10 +8,10 @@ from discord.utils import get
 from setup_bot import StellaricBot
 
 class EmbedFlags(commands.FlagConverter, prefix='--', delimiter=' '):
-  title: str = ""
-  description: str = ""
-  image: str = ""
-  footer: str = ""
+  title: str
+  description: str
+  image: str
+  footer: str
   colour: int = 0xf8c7c7
 
 class TestingQ(commands.Cog, command_attrs=dict(hidden=True), name="Testing"):
@@ -113,11 +113,10 @@ class TestingQ(commands.Cog, command_attrs=dict(hidden=True), name="Testing"):
 
   @commands.command()
   async def testembed2(self, ctx, *, flags: EmbedFlags):
-          stripm = flags.strip('"')
-          embed = discord.Embed.from_dict({'title': f'{stripm.title}',
-                                          'description': f'{stripm.description}',
-                                          'image': {'url': f'{stripm.image}'},
-                                          'footer': {'text': f'{stripm.footer}'},
+          embed = discord.Embed.from_dict({'title': f'{flags.title}',
+                                          'description': f'{flags.description}',
+                                          'image': {'url': f'{flags.image}'},
+                                          'footer': {'text': f'{flags.footer}'},
                                           'color': flags.colour,
                                               })
           await ctx.send(embed=embed)
