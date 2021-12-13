@@ -6,6 +6,8 @@ from discord.ext import commands
 from typing import Optional
 from discord.utils import get
 from setup_bot import StellaricBot
+from backports import configparser
+
 
 class TestingQ(commands.Cog, command_attrs=dict(hidden=True), name="Testing"):
   """
@@ -67,6 +69,41 @@ class TestingQ(commands.Cog, command_attrs=dict(hidden=True), name="Testing"):
       return
     else:
       return
+
+  @commands.has_any_role(
+    793679885285326890,
+    822727647087165461
+  )
+  @commands.guild_only()
+  @commands.command(hidden=True)
+  async def testembed(self, ctx: commands.Context, channel:t.Optional[discord.TextChannel], *, message: str):
+    if '=' not in message:
+      embed_message = discord.Embed(description=message)
+    else:
+      parser = configparser.ConfigParser(interpolation=configparser.ExtendedInterpolation())
+
+      aliases = {
+        'description': ['desc'],
+        'colour':['color'],
+        'image':['img']
+      }
+      for x,y in aliases.items():
+        if any(alias in message for alias in y):
+          for alias in y:
+            message = message.replace(alias, x)
+      text = f"""
+      [DEFAULT]
+      {message}
+      """
+      parser.read_string(text)
+      parsed_values = {k:parser['DEFAULT'][k] for k in parser}
+      embed_message = discord.Embed(**parsed_values)
+    
+    if channel:
+      await channel.send(embed=embed_message)
+    else:
+      await ctx.channel.send(embed=embed_message)
+
 
 
 
