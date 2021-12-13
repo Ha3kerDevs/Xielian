@@ -6,7 +6,13 @@ from discord.ext import commands
 from typing import Optional
 from discord.utils import get
 from setup_bot import StellaricBot
-import configparser
+
+class EmbedFlags(commands.FlagConverter, prefix='--', delimiter=' '):
+  title: str = ""
+  description: str = ""
+  image: str = ""
+  footer: str = ""
+  colour: int = constants.blurple
 
 class TestingQ(commands.Cog, command_attrs=dict(hidden=True), name="Testing"):
   """
@@ -95,13 +101,25 @@ class TestingQ(commands.Cog, command_attrs=dict(hidden=True), name="Testing"):
       {message}
       """
       parser.read_string(text)
-      parsed_values = {parser['DEFAULT'][k] for k in parser}
+      parsed_values = {k:parser['DEFAULT'][k] for k in parser}
       embed_message = discord.Embed(**parsed_values)
     
     if channel:
       await channel.send(embed=embed_message)
+      return
     else:
       await ctx.channel.send(embed=embed_message)
+      return
+
+  @commands.command()
+  async def testembed2(self, ctx, *, flags: EmbedFlags):
+          embed = discord.Embed.from_dict({'title': f'{flags.title}',
+                                          'description': f'{flags.description}',
+                                          'image': {'url': f'{flags.image}'},
+                                          'footer': {'text': f'{flags.footer}'},
+                                          'color': flags.colour,
+                                              })
+          await ctx.send(embed=embed)
 
 
 
