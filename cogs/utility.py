@@ -254,7 +254,11 @@ class Utility(commands.Cog, name="Utility"):
     823814683973779488,
     822727647087165461
   )
-  @commands.command(slash_command=False)
+  @commands.command(
+    slash_command=False,
+    name="embed",
+    help="Type `s!embed` (no args) for the actual instructions."
+  )
   async def embed(self, ctx: commands.Context, *, flags: TestFlags):
     embed = discord.Embed(title=flags.title, description=flags.description, colour=flags.color)
     if flags.field and len(flags.field) > 25:
@@ -273,7 +277,7 @@ class Utility(commands.Cog, name="Utility"):
       `--color [color]` Sets the embed's color.
       `--image [http/https URL*]` Sets the embed's image.
       `--field...(25) [FieldFlags*]` Sets one of the embed's fields using field flags.
-      `FieldFlags:`
+      **FieldFlags:**
       > `--name <text>` Sets that field's name
       > `--value <text>` Sets that field's value / body
       > `--inline [yes/no]` If the field should be in-line (displayed alongside other in-line fields if any)
