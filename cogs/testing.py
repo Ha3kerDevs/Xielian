@@ -12,7 +12,7 @@ class EmbedFlags(commands.FlagConverter, prefix='--', delimiter=' '):
   description: str = ""
   image: str = ""
   footer: str = ""
-  colour: int = constants.blurple
+  colour: int = 0xf8c7c7
 
 class TestingQ(commands.Cog, command_attrs=dict(hidden=True), name="Testing"):
   """
