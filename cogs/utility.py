@@ -51,8 +51,7 @@ class TestFlags(commands.FlagConverter, prefix='--', delimiter=''):
   description: str = discord.Embed.Empty
   color: typing.Optional[discord.Color] = 0xf8c7c7
   field: typing.List[EmbedFieldConverter] = None
-  image: typing.Optional[
-    lambda f: re.findall('http[s]?://(?:[a-zA-Z]|[0-9]|[$-_@.&+]|[!*(),]|(?:%[0-9a-fA-F][0-9a-fA-F]))+', f)]
+  image: str = discord.Embed.Empty
 
 
 # <a:utility:831769452344639498>\u2800
@@ -266,7 +265,7 @@ class Utility(commands.Cog, name="Utility"):
     for f in flags.field or []:
       embed.add_field(name=f.name, value=f.value, inline=f.inline)
     if flags.image:
-      embed.set_image(url=flags.image[0])
+      embed.set_image(url=flags.image)
     if any([flags.title, flags.image, flags.description, flags.field]):
       await ctx.send(embed=embed)
     else:
