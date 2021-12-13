@@ -9,7 +9,7 @@ from setup_bot import StellaricBot
 
 class EmbedFlags(commands.FlagConverter, prefix='--', delimiter=' '):
   title: str = ""
-  description: str = "".strip('"')
+  description: str = ""
   image: str = ""
   footer: str = ""
   colour: int = 0xf8c7c7
@@ -115,7 +115,7 @@ class TestingQ(commands.Cog, command_attrs=dict(hidden=True), name="Testing"):
   async def testembed2(self, ctx, *, flags: EmbedFlags):
     
           embed = discord.Embed.from_dict({'title': f'{flags.title}',
-                                          'description': f'{flags.description}',
+                                          'description': f'{(flags.description).strip('"')}',
                                           'image': {'url': f'{flags.image}'},
                                           'footer': {'text': f'{flags.footer}'},
                                           'color': flags.colour,
