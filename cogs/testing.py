@@ -143,7 +143,7 @@ class TestingQ(commands.Cog, command_attrs=dict(hidden=True), name="Testing"):
         if flags.image:
             embed.set_image(url=flags.image[0])
         if any([flags.title, flags.image, flags.description, flags.field]):
-            await ctx.send(embed=embed, footer=False, reply=False)
+            await ctx.send(embed=embed, reply=False)
         else:
             raise commands.BadArgument('You must pass at least one of the necessary (`*`) flags!')
 
