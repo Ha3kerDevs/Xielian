@@ -113,7 +113,7 @@ class TestingQ(commands.Cog, command_attrs=dict(hidden=True), name="Testing"):
 
   @commands.command()
   async def testembed2(self, ctx, *, flags: EmbedFlags):
-    stripm = flags.strip('"')
+          stripm = flags.strip('"')
           embed = discord.Embed.from_dict({'title': f'{stripm.title}',
                                           'description': f'{stripm.description}',
                                           'image': {'url': f'{stripm.image}'},
