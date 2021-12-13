@@ -93,38 +93,6 @@ class TestingQ(commands.Cog, command_attrs=dict(hidden=True), name="Testing"):
     793679885285326890,
     822727647087165461
   )
-  @commands.guild_only()
-  @commands.command(hidden=True)
-  async def testembed(self, ctx: commands.Context, channel:Optional[discord.TextChannel], *, message: str):
-    if '=' not in message:
-      embed_message = discord.Embed(description=message)
-    else:
-      parser = configparser.ConfigParser(interpolation=configparser.ExtendedInterpolation())
-
-      aliases = {
-        'description': ['desc'],
-        'colour':['color'],
-        'image':['img']
-      }
-      for x,y in aliases.items():
-        if any(alias in message for alias in y):
-          for alias in y:
-            message = message.replace(alias, x)
-      text = f"""
-      [DEFAULT]
-      {message}
-      """
-      parser.read_string(text)
-      parsed_values = {k:parser['DEFAULT'][k] for k in parser}
-      embed_message = discord.Embed(**parsed_values)
-    
-    if channel:
-      await channel.send(embed=embed_message)
-      return
-    else:
-      await ctx.channel.send(embed=embed_message)
-      return
-
   @commands.command()
   async def testembed2(self, ctx, *, flags: EmbedFlags):
           embed = discord.Embed.from_dict({'title': f'{flags.title}',
@@ -134,9 +102,13 @@ class TestingQ(commands.Cog, command_attrs=dict(hidden=True), name="Testing"):
                                           'color': flags.colour,
                                               })
           await ctx.send(embed=embed)
-
+  
+  @commands.has_any_role(
+    793679885285326890,
+    822727647087165461
+  )
   @commands.command()
-  async def embed(self, ctx: CustomContext, *, flags: TestFlags):
+  async def embed(self, ctx: commands.Context, *, flags: TestFlags):
         """
         A test command for trying out the new flags feature in discord.py v2.0
         Flag usage: `--flag [flag string]`
