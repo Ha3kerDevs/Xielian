@@ -75,7 +75,7 @@ class TestingQ(commands.Cog, command_attrs=dict(hidden=True), name="Testing"):
   )
   @commands.guild_only()
   @commands.command(hidden=True)
-  async def testembed(self, ctx: commands.Context, channel:t.Optional[discord.TextChannel], *, message: str):
+  async def testembed(self, ctx: commands.Context, channel:Optional[discord.TextChannel], *, message: str):
     if '=' not in message:
       embed_message = discord.Embed(description=message)
     else:
