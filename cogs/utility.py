@@ -254,7 +254,7 @@ class Utility(commands.Cog, name="Utility"):
     823814683973779488,
     822727647087165461
   )
-  @commands.command()
+  @commands.command(slash_command=False)
   async def embed(self, ctx: commands.Context, *, flags: TestFlags):
     embed = discord.Embed(title=flags.title, description=flags.description, colour=flags.color)
     if flags.field and len(flags.field) > 25:
@@ -266,7 +266,22 @@ class Utility(commands.Cog, name="Utility"):
     if any([flags.title, flags.image, flags.description, flags.field]):
       await ctx.send(embed=embed)
     else:
-      raise commands.BadArgument('You must pass at least one of the necessary (`*`) flags!')
+      text_damn = """
+      **Available flags:**
+      `--title [text*]` Sets the embed title.
+      `--description [text*]` Sets the embed body/description.
+      `--color [color]` Sets the embed's color.
+      `--image [http/https URL*]` Sets the embed's image.
+      `--field...(25) [FieldFlags*]` Sets one of the embed's fields using field flags.
+      `FieldFlags:`
+      > `--name <text>` Sets that field's name
+      > `--value <text>` Sets that field's value / body
+      > `--inline [yes/no]` If the field should be in-line (displayed alongside other in-line fields if any)
+      **For example:** `--field --name hi hello --value more text --inline no`
+      _Note: You can have multiple `--field`(s) using `--name` and `--value` (up to 25)_
+      """
+      await ctx.send(text_damn)
+      # raise commands.BadArgument('You must pass at least one of the necessary (`*`) flags!')
 
 
 def setup(bot: StellaricBot):
