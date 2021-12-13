@@ -95,7 +95,7 @@ class TestingQ(commands.Cog, command_attrs=dict(hidden=True), name="Testing"):
       {message}
       """
       parser.read_string(text)
-      parsed_values = {k:parser['DEFAULT'][k] for k in parser}
+      parsed_values = {parser['DEFAULT'][k] for k in parser}
       embed_message = discord.Embed(**parsed_values)
     
     if channel:
