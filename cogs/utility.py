@@ -1,5 +1,6 @@
 import discord, time
 import datetime
+import typing
 from discord.ext import commands
 from cogs.utils import config
 from typing import Optional
@@ -20,6 +21,7 @@ from setup_bot import StellaricBot
 # 823372056409800724 = Moderator
 # 826833464401330177 = Helper
 
+
 TIME_DURATION_UNITS = (
   ('month', 2629800),
   ('week', 604800), # 60*60*24*7
@@ -38,6 +40,20 @@ def sec_converter(seconds):
     if amount > 0:
       parts.append(f'**{amount}** {unit}{"" if amount == 1 else "s"}')
   return ', '.join(parts)
+
+class EmbedFieldConverter(commands.FlagConverter, prefix='--', delimiter=''):
+  name: str
+  value: str
+  inline: typing.Optional[bool] = True
+
+class TestFlags(commands.FlagConverter, prefix='--', delimiter=''):
+  title: str = discord.Embed.Empty
+  description: str = discord.Embed.Empty
+  color: typing.Optional[discord.Color] = 0xf8c7c7
+  field: typing.List[EmbedFieldConverter] = None
+  image: typing.Optional[
+    lambda f: re.findall('http[s]?://(?:[a-zA-Z]|[0-9]|[$-_@.&+]|[!*(),]|(?:%[0-9a-fA-F][0-9a-fA-F]))+', f)]
+
 
 # <a:utility:831769452344639498>\u2800
 class Utility(commands.Cog, name="Utility"):
@@ -231,6 +247,26 @@ class Utility(commands.Cog, name="Utility"):
     )
     await ctx.message.delete()
 
+  @commands.has_any_role(
+    793679885285326890,
+    797687618007466015,
+    822428355554312212,
+    823814683973779488,
+    822727647087165461
+  )
+  @commands.command()
+  async def embed(self, ctx: commands.Context, *, flags: TestFlags):
+    embed = discord.Embed(title=flags.title, description=flags.description, colour=flags.color)
+    if flags.field and len(flags.field) > 25:
+      raise commands.BadArgument('You can only have up to 25 fields!')
+    for f in flags.field or []:
+      embed.add_field(name=f.name, value=f.value, inline=f.inline)
+    if flags.image:
+      embed.set_image(url=flags.image[0])
+    if any([flags.title, flags.image, flags.description, flags.field]):
+      await ctx.send(embed=embed)
+    else:
+      raise commands.BadArgument('You must pass at least one of the necessary (`*`) flags!')
 
 
 def setup(bot: StellaricBot):

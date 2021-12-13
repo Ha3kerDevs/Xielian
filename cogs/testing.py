@@ -8,25 +8,6 @@ from discord.utils import get
 from setup_bot import StellaricBot
 import typing
 
-class EmbedFlags(commands.FlagConverter, prefix='--', delimiter=' '):
-  title: str = ""
-  description: str = ""
-  image: str = ""
-  footer: str = ""
-  colour: int = 0xf8c7c7
-
-class EmbedFieldConverter(commands.FlagConverter, prefix='--', delimiter=''):
-  name: str
-  value: str
-  inline: typing.Optional[bool] = True
-
-class TestFlags(commands.FlagConverter, prefix='--', delimiter=''):
-  title: str = discord.Embed.Empty
-  description: str = discord.Embed.Empty
-  color: typing.Optional[discord.Color] = 0x000001
-  field: typing.List[EmbedFieldConverter] = None
-  image: typing.Optional[
-    lambda f: re.findall('http[s]?://(?:[a-zA-Z]|[0-9]|[$-_@.&+]|[!*(),]|(?:%[0-9a-fA-F][0-9a-fA-F]))+', f)]
 
 class TestingQ(commands.Cog, command_attrs=dict(hidden=True), name="Testing"):
   """
@@ -88,64 +69,6 @@ class TestingQ(commands.Cog, command_attrs=dict(hidden=True), name="Testing"):
       return
     else:
       return
-
-  @commands.has_any_role(
-    793679885285326890,
-    822727647087165461
-  )
-  @commands.command()
-  async def testembed2(self, ctx, *, flags: EmbedFlags):
-          embed = discord.Embed.from_dict({'title': f'{flags.title}',
-                                          'description': f'{flags.description}',
-                                          'image': {'url': f'{flags.image}'},
-                                          'footer': {'text': f'{flags.footer}'},
-                                          'color': flags.colour,
-                                              })
-          await ctx.send(embed=embed)
-  
-  @commands.has_any_role(
-    793679885285326890,
-    822727647087165461
-  )
-  @commands.command()
-  async def embed(self, ctx: commands.Context, *, flags: TestFlags):
-        """
-        A test command for trying out the new flags feature in discord.py v2.0
-        Flag usage: `--flag [flag string]`
-        Note that `--text... [text]` (with ellipsis) can accept a repeated amount of them:
-        Like for example, in this case, with the flag `text`:
-        `--text hello --text hi how r u --text a third text and so on`
-        `--text...(25)` would mean it can have up to 25 different inputs.
-        `--text [text*]` would mean that its necessary but not mandatory. AKA if there's multiple of them, you can pass only one and it will work. But you need **at least one of them**
-
-        Flags that have an `=` sign mean that they have a default value.
-        for example: `--color [Color=#ffffff]` means the color will be `#ffffff` if it can't find a color in the given input.
-        Flags can also be mandatory, for example: `--text <text>`. the `<>` brackets mean it is not optional
-
-        **Available flags:**
-        `--title [text*]` Sets the embed title.
-        `--description [text*]` Sets the embed body/description.
-        `--color [color]` Sets the embed's color.
-        `--image [http/https URL*]` Sets the embed's image.
-        `--field...(25) [FieldFlags*]` Sets one of the embed's fields using field flags.
-        `FieldFlags:`
-        > `--name <text>` Sets that field's name
-        > `--value <text>` Sets that field's value / body
-        > `--inline [yes/no]` If the field should be in-line (displayed alongside other in-line fields if any)
-        **For example:** `--field --name hi hello --value more text --inline no`
-        _Note: You can have multiple `--field`(s) using `--name` and `--value` (up to 25)_
-        """
-        embed = discord.Embed(title=flags.title, description=flags.description, colour=flags.color)
-        if flags.field and len(flags.field) > 25:
-            raise commands.BadArgument('You can only have up to 25 fields!')
-        for f in flags.field or []:
-            embed.add_field(name=f.name, value=f.value, inline=f.inline)
-        if flags.image:
-            embed.set_image(url=flags.image[0])
-        if any([flags.title, flags.image, flags.description, flags.field]):
-            await ctx.send(embed=embed)
-        else:
-            raise commands.BadArgument('You must pass at least one of the necessary (`*`) flags!')
 
 
 def setup(bot: StellaricBot):
