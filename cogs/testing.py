@@ -1,12 +1,12 @@
 import discord
 import datetime
 import asyncio
+import typing
 from cogs.utils import checks, config, utils
 from discord.ext import commands
-from typing import Optional
+from typing import Optional, Union
 from discord.utils import get
 from setup_bot import StellaricBot
-import typing
 
 
 class TestingQ(commands.Cog, command_attrs=dict(hidden=True), name="Testing"):
