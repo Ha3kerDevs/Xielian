@@ -55,6 +55,7 @@ class TestFlags(commands.FlagConverter, prefix='--', delimiter=''):
   image: str = discord.Embed.Empty
 
 
+
 # <a:utility:831769452344639498>\u2800
 class Utility(commands.Cog, name="Utility"):
   """
@@ -101,7 +102,20 @@ class Utility(commands.Cog, name="Utility"):
       color=0xf8c7c7
     )
     await ctx.reply(embed=embed, allowed_mentions=discord.AllowedMentions().none())
-  
+
+  @commands.cooldown(1, 6, commands.BucketType.user)
+  @commands.has_permissions(manage_channels=True)
+  @commands.guild_only()
+  @commands.command(
+    name='setsm',
+    help="Set a slowmode on a channel.",
+    usage='<seconds>',
+    aliases=['ssm']
+  )
+  async def _setsm(self, ctx, seconds: int):
+    await ctx.channel.edit(slowmode_delay=seconds)
+    await ctx.send(f"Set the slowmode delay in this channel to {seconds} seconds!")
+
   @commands.cooldown(1, 6, commands.BucketType.user)
   @commands.guild_only()
   @commands.command(
