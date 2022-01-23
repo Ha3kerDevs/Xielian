@@ -69,7 +69,8 @@ class Utility(commands.Cog, name="Utility"):
     797687618007466015,
     822428355554312212,
     823814683973779488,
-    822727647087165461
+    822727647087165461,
+    825584517963055174
   )
   @commands.cooldown(1, 6, commands.BucketType.guild)
   @commands.guild_only()
