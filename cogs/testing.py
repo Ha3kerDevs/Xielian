@@ -53,10 +53,12 @@ class TestingQ(commands.Cog, command_attrs=dict(hidden=True), name="Testing"):
   @commands.guild_only()
   @commands.command(hidden=True)
   async def outuserinfo(self, ctx, *, user: Union[discord.Member, discord.User] = None):
-    user = user or ctx.author
+    userfetch = user or ctx.author
     e = discord.Embed(title="User info", color=0xf8c7c7)
 
-    e.add_field(name='ID', value=user.id, inline=False)
+    user = await self.bot.fetch_user(userfetch.id)
+
+    e.add_field(name='ID', value=userfetch.id, inline=False)
     e.add_field(name='Joined', value=f"{utils.timestamp(user.joined_at, 'f')}", inline=False)
     e.add_field(name='Created', value=f"{utils.timestamp(user.created_at, 'f')}", inline=False)
     e.set_thumbnail(url=user.display_avatar.url)

@@ -107,12 +107,12 @@ class Utility(commands.Cog, name="Utility"):
   @commands.has_permissions(manage_channels=True)
   @commands.guild_only()
   @commands.command(
-    name='setsm',
+    name='slowmode',
     help="Set a slowmode on a channel.",
     usage='<seconds>',
-    aliases=['ssm']
+    aliases=['sm']
   )
-  async def _setsm(self, ctx, seconds: int):
+  async def _slowmode(self, ctx, seconds: int):
     await ctx.channel.edit(slowmode_delay=seconds)
     await ctx.send(f"Set the slowmode delay in this channel to {seconds} seconds!")
 
