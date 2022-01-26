@@ -30,11 +30,11 @@ class Event(commands.Cog):
   async def status(self):
     while True:
       await self.bot.wait_until_ready()
-      await self.bot.change_presence(activity=discord.Activity(type=discord.ActivityType.watching, name=f"{len(self.bot.users)} members"))
+      await self.bot.change_presence(activity=discord.Activity(type=discord.ActivityType.watching, name=f"{len(self.bot.users)} members!"))
       await sleep(140)
-      await self.bot.change_presence(activity=discord.Game(name="I'm self-aware."))
+      await self.bot.change_presence(activity=discord.Game(name="I'm at loss"))
       await sleep(140)
-      await self.bot.change_presence(activity=discord.Game(name="Optimum Pride"))
+      await self.bot.change_presence(activity=discord.Activity(type=discord.ActivityType.watching, name=f"discord.gg/stellaric"))
       await sleep(140)
       await self.bot.change_presence(activity=discord.Streaming(name="Nonsense", url="https://www.youtube.com/watch?v=NfSGm9DDQ3o"))
       await sleep(140)
