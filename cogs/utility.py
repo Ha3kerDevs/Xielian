@@ -50,7 +50,7 @@ class EmbedFieldConverter(commands.FlagConverter, prefix='--', delimiter=''):
 class TestFlags(commands.FlagConverter, prefix='--', delimiter=''):
   title: str = discord.Embed.Empty
   description: str = discord.Embed.Empty
-  color: typing.Optional[discord.Color] = 0xf8c7c7
+  color: typing.Optional[discord.Color] = 0x9b7474
   field: typing.List[EmbedFieldConverter] = None
   image: str = discord.Embed.Empty
 
@@ -153,7 +153,7 @@ class Utility(commands.Cog, name="Utility"):
       then_send = sec_converter(secs)
       answer='**{}** secs'.format(secs)
       
-      embed = discord.Embed(title="Time Difference", description=f"Time: {answer} \nHuman Readable: {then_send or 'I Dunno'}", color=0xf8c7c7)
+      embed = discord.Embed(title="Time Difference", description=f"Time: {answer} \nHuman Readable: {then_send or 'I Dunno'}", color=0x9b7474)
       await ctx.send(embed=embed)
 
   @commands.has_any_role(

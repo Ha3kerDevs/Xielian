@@ -31,9 +31,9 @@ class Fun(commands.Cog, name="Fun"):
       res = await r.json()
     img = res['link']
     if user is None:
-      embed = discord.Embed(title="Slap", description=f"**{ctx.author.name}** slapped **Themselves**!", color=0xf8c7c7)
+      embed = discord.Embed(title="Slap", description=f"**{ctx.author.name}** slapped **Themselves**!", color=0x9b7474)
     else:
-      embed = discord.Embed(title="Slap", description=f"**{ctx.author.name}** slapped **{user.name}**!", color=0xf8c7c7)
+      embed = discord.Embed(title="Slap", description=f"**{ctx.author.name}** slapped **{user.name}**!", color=0x9b7474)
     embed.set_footer(text="Stellaric | If the image/gif is not loading, try again.")
     embed.set_image(url=img)
     await ctx.send(embed=embed)
@@ -51,9 +51,9 @@ class Fun(commands.Cog, name="Fun"):
       res = await r.json()
     img = res['link']
     if user is None:
-      embed = discord.Embed(title="Hug", description=f"**{ctx.author.name}** hugs **Themselves**!", color=0xf8c7c7)
+      embed = discord.Embed(title="Hug", description=f"**{ctx.author.name}** hugs **Themselves**!", color=0x9b7474)
     else:
-      embed = discord.Embed(title="Hug", description=f"**{ctx.author.name}** hugs **{user.name}**!", color=0xf8c7c7)
+      embed = discord.Embed(title="Hug", description=f"**{ctx.author.name}** hugs **{user.name}**!", color=0x9b7474)
     embed.set_footer(text="Stellaric | If the image/gif is not loading, try again.")
     embed.set_image(url=img)
     await ctx.send(embed=embed)
@@ -69,7 +69,7 @@ class Fun(commands.Cog, name="Fun"):
     async with self.bot.session.get("https://purrbot.site/api/img/sfw/cuddle/gif") as r:
       res = await r.json()
     img = res['link']
-    embed = discord.Embed(title="Cuddle", description=f"**{ctx.author.name}** cuddles **{user.name}**!", color=0xf8c7c7)
+    embed = discord.Embed(title="Cuddle", description=f"**{ctx.author.name}** cuddles **{user.name}**!", color=0x9b7474)
     embed.set_footer(text="Stellaric | If the image/gif is not loading, try again.")
     embed.set_image(url=img)
     await ctx.send(embed=embed)
@@ -86,9 +86,9 @@ class Fun(commands.Cog, name="Fun"):
       res = await r.json()
     img = res['link']
     if user is None:
-      embed = discord.Embed(title="Pat", description=f"**{ctx.author.name}** pats **Themselves**!", color=0xf8c7c7)
+      embed = discord.Embed(title="Pat", description=f"**{ctx.author.name}** pats **Themselves**!", color=0x9b7474)
     else:
-      embed = discord.Embed(title="Pat", description=f"**{ctx.author.name}** pats **{user.name}**!", color=0xf8c7c7)
+      embed = discord.Embed(title="Pat", description=f"**{ctx.author.name}** pats **{user.name}**!", color=0x9b7474)
     embed.set_footer(text="Stellaric | If the image/gif is not loading, try again.")
     embed.set_image(url=img)
     await ctx.send(embed=embed)
@@ -104,7 +104,7 @@ class Fun(commands.Cog, name="Fun"):
     async with self.bot.session.get("https://purrbot.site/api/img/sfw/kiss/gif") as r:
       res = await r.json()
     img = res['link']
-    embed = discord.Embed(title="kiss", description=f"**{ctx.author.name}** kisses **{user.name}**!", color=0xf8c7c7)
+    embed = discord.Embed(title="kiss", description=f"**{ctx.author.name}** kisses **{user.name}**!", color=0x9b7474)
     embed.set_footer(text="Stellaric | If the image/gif is not loading, try again.")
     embed.set_image(url=img)
     await ctx.send(embed=embed)
@@ -137,7 +137,7 @@ class Fun(commands.Cog, name="Fun"):
     a_coin = "<a:Coin:812201969040359454>"
     embed = discord.Embed(title=f"{a_coin} Coinflip", description="Flipping..", color=0xF77733)
     message = await ctx.reply(embed=embed, allowed_mentions=discord.AllowedMentions().none())
-    embed = discord.Embed(title=f"{a_coin} Coinflip", description=f"It land on **{random.choice(coin)}**!", color=0xf8c7c7)
+    embed = discord.Embed(title=f"{a_coin} Coinflip", description=f"It land on **{random.choice(coin)}**!", color=0x9b7474)
 
     await asyncio.sleep(3)
     await message.edit(embed=embed)

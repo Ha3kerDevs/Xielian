@@ -42,12 +42,10 @@ class Info(commands.Cog, name="Information"):
     acknow = ''
     if user.id in config.devs:
       acknow += 'Bot Developer'
-    elif user.id == 877743211337117706:
-      acknow += 'This person is cool <a:catnod:894835717681852417>'
 
     embed = discord.Embed(
       title="User information",
-      colour=0x9CDFFF,
+      colour=0x9b7474,
       timestamp=datetime.datetime.utcnow()
     )
 
@@ -80,11 +78,11 @@ class Info(commands.Cog, name="Information"):
   @commands.cooldown(1, 6, commands.BucketType.user)
   async def info(self, ctx):
     dev = self.bot.get_user(341837496763678731)
-    info = discord.Embed(title="Bot Information", color=0xf8c7c7)
+    info = discord.Embed(title="Bot Information", color=0x9b7474)
     info.add_field(name="About", value="Stellaric is a multi-purpose bot made exclusively on Stellaric", inline=False)
     info.add_field(name="Developer", value=f"{dev.mention}", inline=True)
-    info.add_field(name="Version", value="1.2", inline=True)
-    info.set_footer(text="Distributed by [ H Λ 3 K Ξ Я™ ] | Stellaric")
+    info.add_field(name="Version", value="1.5", inline=True)
+    info.set_footer(text="[ H Λ 3 K Ξ Я™ ] x Stellaric")
 
     await ctx.send(embed=info)
 

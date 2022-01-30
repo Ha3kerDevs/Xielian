@@ -54,7 +54,7 @@ class TestingQ(commands.Cog, command_attrs=dict(hidden=True), name="Testing"):
   @commands.command(hidden=True)
   async def outuserinfo(self, ctx, *, user: Union[discord.Member, discord.User] = None):
     userfetch = user or ctx.author
-    e = discord.Embed(title="User info", color=0xf8c7c7)
+    e = discord.Embed(title="User info", color=0x9b7474)
 
     user = await self.bot.fetch_user(userfetch.id)
 

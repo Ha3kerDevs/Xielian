@@ -40,7 +40,7 @@ class Help(commands.Cog):
         bottom_info = "[ H Λ 3 K Ξ Я™ ] | Stellaric"
         bot = ctx.bot
         prefix = "s!"
-        embed = discord.Embed(title="Stellaric Help Center", description="Arguments: <> = Required | () = Optional", color=0xf8c7c7)
+        embed = discord.Embed(title="Stellaric Help Center", description="Arguments: <> = Required | () = Optional", color=0x9b7474)
 
         def generate_usage(command_name):
             """ Generates a string of how to use a command """
