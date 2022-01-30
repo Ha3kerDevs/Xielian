@@ -56,7 +56,7 @@ class Info(commands.Cog, name="Information"):
     f"• **Name:** {str(user)}\n"
     f"• **Display Name:** {user.display_name or 'None'}\n"
     f"• **Registered At:** {utils.timestamp(user.created_at, 'f')} ({utils.timestamp(user.created_at, 'R')})\n"
-    f"• **Joined At:** {utils.timestamp(user.joined_at, 'f')} ({utils.timestamp(user.created_at, 'R')})\n"
+    f"• **Joined At:** {utils.timestamp(user.joined_at, 'f')} ({utils.timestamp(user.joined_at, 'R')})\n"
     f"• **Position:** {pos}\n"
     f"• **Badges:** {utils.get_user_badges(user) or 'No Badges'}", inline=False)
 
