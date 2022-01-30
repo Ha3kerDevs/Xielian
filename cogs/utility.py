@@ -99,7 +99,7 @@ class Utility(commands.Cog, name="Utility"):
     embed = discord.Embed(title="Member Count", description=
       f"Total: {member_count}\n"
       f"True Count: {true_member_count}",
-      color=0xf8c7c7
+      color=0x9b7474
     )
     await ctx.reply(embed=embed, allowed_mentions=discord.AllowedMentions().none())
 
