@@ -271,8 +271,9 @@ class Utility(commands.Cog, name="Utility"):
   async def _alink(self, ctx):
     horn = "<:s_horn:915257645848473650>"
     guide = "<:s_guide:915257977005539418>"
-    
+
     await ctx.send(f"{horn} : Be ready! Another **Robux/Nitro** drop \n {guide} : **Stay here** and wait for the link!")
+    await ctx.message.delete()
 
   @commands.has_permissions(manage_guild=True)
   @commands.command(
