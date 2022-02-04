@@ -104,7 +104,7 @@ class Utility(commands.Cog, name="Utility"):
     await ctx.reply(embed=embed, allowed_mentions=discord.AllowedMentions().none())
 
   @commands.cooldown(1, 6, commands.BucketType.user)
-  @commands.has_permissions(manage_channels=True)
+  @commands.has_permissions(manage_messages=True)
   @commands.guild_only()
   @commands.command(
     name='slowmode',
@@ -156,19 +156,7 @@ class Utility(commands.Cog, name="Utility"):
       embed = discord.Embed(title="Time Difference", description=f"Time: {answer} \nHuman Readable: {then_send or 'I Dunno'}", color=0x9b7474)
       await ctx.send(embed=embed)
 
-  @commands.has_any_role(
-    793679885285326890,
-    797687618007466015,
-    822428355554312212,
-    823814683973779488,
-    822727647087165461,
-    823048526610038796,
-    825584517963055174,
-    823048690058526730,
-    823048862821777438,
-    823372056409800724,
-    826833464401330177
-  )
+  @commands.has_permissions(manage_messages=True)
   @commands.cooldown(1, 3, commands.BucketType.user)
   @commands.guild_only()
   @commands.command(pass_context=True,
@@ -193,19 +181,7 @@ class Utility(commands.Cog, name="Utility"):
 
     await ctx.message.delete()
   
-  @commands.has_any_role(
-    793679885285326890,
-    797687618007466015,
-    822428355554312212,
-    823814683973779488,
-    822727647087165461,
-    823048526610038796,
-    825584517963055174,
-    823048690058526730,
-    823048862821777438,
-    823372056409800724,
-    826833464401330177
-  )
+  @commands.has_permissions(manage_guild=True)
   @commands.guild_only()
   @commands.command(
     name="noreq",
@@ -232,19 +208,7 @@ class Utility(commands.Cog, name="Utility"):
     await ctx.message.delete()
 
 
-  @commands.has_any_role(
-    793679885285326890,
-    797687618007466015,
-    822428355554312212,
-    823814683973779488,
-    822727647087165461,
-    823048526610038796,
-    825584517963055174,
-    823048690058526730,
-    823048862821777438,
-    823372056409800724,
-    826833464401330177
-  )
+  @commands.has_permissions(manage_guild=True)
   @commands.guild_only()
   @commands.command(
     name="winner",
@@ -274,19 +238,36 @@ class Utility(commands.Cog, name="Utility"):
     )
     await ctx.message.delete()
 
-  @commands.has_any_role(
-    793679885285326890,
-    797687618007466015,
-    822428355554312212,
-    823814683973779488,
-    822727647087165461,
-    823048526610038796,
-    825584517963055174,
-    823048690058526730,
-    823048862821777438,
-    823372056409800724,
-    826833464401330177
+
+  @commands.has_permissions(manage_guild=True)
+  @commands.guild_only()
+  @commands.command(
+    name="drops",
+    help="Announces drops giveaway."
   )
+  async def _drops(self, ctx):
+    line = "<:sl_blueline:915258046660354078>"
+    dot2 = "<:s_dots:915257866468868146>"
+    horn = "<:s_horn:915257645848473650>"
+    guide = "<:s_guide:915257977005539418>"
+
+    finalline = f"{dot2} {line}{line}{line}{line}{line}{line}{line}{line}{line}{line}{line}{line}{line}{line}{line}{line} {dot2}"
+    await ctx.send(
+    f"╭ {guide} : **HOW DO DROPS WORK?**\n"
+    f"{finalline}\n "
+    f"{horn} Drops are **quick giveaways**. Only last 5-20 minutes\n"
+    f"{dot2} **Always join** the required server so you won't be rerolled\n"
+    f"{dot2} Just simply click the emoji on the giveaway to enter\n"
+    f"{dot2} **Stay in the channel** so you won't get rerolled\n"
+    f"{finalline}\n"
+    f"╰ {horn} : **Always Prioritize Stellaric Pings!**"
+    )
+    await ctx.message.delete()
+
+
+
+
+  @commands.has_permissions(manage_guild=True)
   @commands.command(
     slash_command=False,
     name="embed",
