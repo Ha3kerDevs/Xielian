@@ -47,5 +47,24 @@ class Moderation(commands.Cog, name="Moderation"):
     await member.edit(timeout_until=None, reason=reason)
     await ctx.send(f"Unmuted **{member}**.")
 
+  @commands.command(
+    name="clear",
+    aliases=['purge'],
+    description="Clears X messages."
+  )
+  @commands.has_permissions(manage_messages=True)
+  @commands.bot_has_permissions(manage_messages=True)
+  async def _clear(ctx, num: int, target: discord.Member=None):
+    if num > 500 or num < 0:
+      return await ctx.send("Invalid amount. Maximum is 500.")
+    def msgcheck(amsg):
+      if target:
+        return amsg.author.id == target.id
+      return True
+    deleted = await ctx.channel.purge(limit=num, check=msgcheck)
+    await ctx.send(f'👍 Deleted **{len(deleted)}/{num}** possible messages for you.', delete_after=10)
+
+
+
 def setup(bot: StellaricBot):
   bot.add_cog(Moderation(bot))
