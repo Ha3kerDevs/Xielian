@@ -31,7 +31,7 @@ class Moderation(commands.Cog, name="Moderation"):
       description=f"{member.mention} Has been muted until {discord.utils.format_dt(dur)}.\nReason: {reason}",
       )
     if silence:
-      return ctx.message.delete()
+      return await ctx.message.delete()
     else:
       await ctx.send(embed=embed)
 
