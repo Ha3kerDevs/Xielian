@@ -18,7 +18,7 @@ class Moderation(commands.Cog, name="Moderation"):
   )
   @commands.has_permissions(moderate_members=True)
   @commands.bot_has_permissions(moderate_members=True)
-  async def _mute(self, ctx, member: discord.Member, duration: TimeConverter, *, reason = None):
+  async def _mute(self, ctx, member: discord.Member, duration: TimeConverter, silence=False, *, reason = None):
     if duration > 2419200 or duration < 60:
       return await ctx.send("Mute time must be over 1 minute and under 28 days.")
     if member.timed_out:
@@ -30,7 +30,10 @@ class Moderation(commands.Cog, name="Moderation"):
       title="Muted",
       description=f"{member.mention} Has been muted until {discord.utils.format_dt(dur)}.\nReason: {reason}",
       )
-    await ctx.send(embed=embed)
+    if silence:
+      return ctx.message.delete()
+    else:
+      await ctx.send(embed=embed)
 
   @commands.command(
     name="unmute",
