@@ -46,7 +46,7 @@ class Moderation(commands.Cog, name="Moderation"):
     reason = reason or f"{ctx.author}: No reason provided."
     await member.edit(timeout_until=None, reason=reason)
     await ctx.send(f"Unmuted **{member}**.")
-
+  
   @commands.command(
     name="clear",
     aliases=['purge'],
@@ -54,6 +54,7 @@ class Moderation(commands.Cog, name="Moderation"):
   )
   @commands.has_permissions(manage_messages=True)
   @commands.bot_has_permissions(manage_messages=True)
+  @commands.cooldown(1, 5, commands.BucketType.user)
   async def _clear(ctx, num: int, target: discord.Member=None):
     if num > 500 or num < 0:
       return await ctx.send("Invalid amount. Maximum is 500.")
