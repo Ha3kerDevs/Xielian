@@ -10,7 +10,6 @@ class Moderation(commands.Cog, name="Moderation"):
   def __init__(self, bot: StellaricBot):
     self.bot = bot
 
-
   @commands.command(
     name="mute",
     help="Mute members lol.",
@@ -24,11 +23,12 @@ class Moderation(commands.Cog, name="Moderation"):
     if member.timed_out:
       return await ctx.send(f"{Member} is already muted.")
     dur = datetime.datetime.now(tz=datetime.timezone.utc) + datetime.timedelta(seconds=duration)
-    reason = reason or "No reason provided."
-    await member.edit(timeout_until=dur, reason=reason)
+    reason_log = reason or f"{ctx.author}: No reason provided."
+    await member.edit(timeout_until=dur, reason=reason_log)
     embed = discord.Embed(
       title="Muted",
-      description=f"{member.mention} Has been muted until {discord.utils.format_dt(dur)}.\nReason: {reason}",
+      description=f"<:checkmark:815484488757805076> {member.mention} Has been muted until {discord.utils.format_dt(dur)}.\nReason: {reason}",
+      color=0x9b7474
       )
     if "-s" in reason:
       return await ctx.message.delete()
@@ -41,7 +41,7 @@ class Moderation(commands.Cog, name="Moderation"):
     usage="<member>"
   )
   @commands.has_permissions(moderate_members=True)
-  #@commands.bot_has_permissions(moderate_members=True)
+  @commands.bot_has_permissions(moderate_members=True)
   async def _unmute(self, ctx, member: discord.Member, *, reason = None):
     reason = reason or f"{ctx.author}: No reason provided."
     await member.edit(timeout_until=None, reason=reason)
