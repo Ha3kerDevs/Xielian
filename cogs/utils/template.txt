@@ -47,32 +47,3 @@ def setup(bot: StellaricBot):
 
 
 await self.bot.http.bulk_upsert_guild_commands(self.bot.application_id, gid, [])
-
-
-
-        """
-        A test command for trying out the new flags feature in discord.py v2.0
-        Flag usage: `--flag [flag string]`
-        Note that `--text... [text]` (with ellipsis) can accept a repeated amount of them:
-        Like for example, in this case, with the flag `text`:
-        `--text hello --text hi how r u --text a third text and so on`
-        `--text...(25)` would mean it can have up to 25 different inputs.
-        `--text [text*]` would mean that its necessary but not mandatory. AKA if there's multiple of them, you can pass only one and it will work. But you need **at least one of them**
-
-        Flags that have an `=` sign mean that they have a default value.
-        for example: `--color [Color=#ffffff]` means the color will be `#ffffff` if it can't find a color in the given input.
-        Flags can also be mandatory, for example: `--text <text>`. the `<>` brackets mean it is not optional
-
-        **Available flags:**
-        `--title [text*]` Sets the embed title.
-        `--description [text*]` Sets the embed body/description.
-        `--color [color]` Sets the embed's color.
-        `--image [http/https URL*]` Sets the embed's image.
-        `--field...(25) [FieldFlags*]` Sets one of the embed's fields using field flags.
-        `FieldFlags:`
-        > `--name <text>` Sets that field's name
-        > `--value <text>` Sets that field's value / body
-        > `--inline [yes/no]` If the field should be in-line (displayed alongside other in-line fields if any)
-        **For example:** `--field --name hi hello --value more text --inline no`
-        _Note: You can have multiple `--field`(s) using `--name` and `--value` (up to 25)_
-        """

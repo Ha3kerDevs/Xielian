@@ -153,7 +153,7 @@ class Utility(commands.Cog, name="Utility"):
       then_send = sec_converter(secs)
       answer='**{}** secs'.format(secs)
       
-      embed = discord.Embed(title="Time Difference", description=f"Time: {answer} \nHuman Readable: {then_send or 'I Dunno'}", color=0x9b7474)
+      embed = discord.Embed(title="Time Difference", description=f"Time: {answer} \n Readable: {then_send or 'I Dunno'}", color=0x9b7474)
       await ctx.send(embed=embed)
 
   @commands.has_permissions(manage_messages=True)
@@ -303,7 +303,7 @@ class Utility(commands.Cog, name="Utility"):
       > `--name <text>` Sets that field's name
       > `--value <text>` Sets that field's value / body
       > `--inline [yes/no]` If the field should be in-line (displayed alongside other in-line fields if any)
-      **For example:** `--field --name hi hello --value more text --inline no`
+      **For example:** `s!embed --field --name hi hello --value more text --inline no`
       _Note: You can have multiple `--field`(s) using `--name` and `--value` (up to 25)_
       """
       await ctx.send(text_damn)
