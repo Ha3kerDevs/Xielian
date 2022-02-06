@@ -11,10 +11,14 @@ class Moderation(commands.Cog, name="Moderation"):
     self.bot = bot
 
 
-  @commands.command()
+  @commands.command(
+    name="mute",
+    help="Check your or a person's server information.",
+    usage="<member>, <duration>, [reason]"
+  )
   @commands.has_permissions(moderate_members=True)
   @commands.bot_has_permissions(moderate_members=True)
-  async def mute(self, ctx, member: discord.Member, duration: TimeConverter, reason = None):
+  async def _mute(self, ctx, member: discord.Member, duration: TimeConverter, reason = None):
     pass
 
 def setup(bot: StellaricBot):
