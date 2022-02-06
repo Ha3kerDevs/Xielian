@@ -39,7 +39,7 @@ class Moderation(commands.Cog, name="Moderation"):
   )
   @commands.has_permissions(moderate_members=True)
   #@commands.bot_has_permissions(moderate_members=True)
-  async def _unmute(self, ctx, member: discord.Member, duration: TimeConverter, *, reason = None):
+  async def _unmute(self, ctx, member: discord.Member, *, reason = None):
     reason = reason or f"{ctx.author}: No reason provided."
     await member.edit(timeout_until=None, reason=reason)
     await ctx.send(f"Unmuted {member}.")
