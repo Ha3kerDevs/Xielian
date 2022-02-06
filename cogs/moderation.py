@@ -21,7 +21,7 @@ class Moderation(commands.Cog, name="Moderation"):
     if duration > 2419200 or duration < 60:
       return await ctx.send("Mute time must be over 1 minute and under 28 days.")
     if member.timed_out:
-      return await ctx.send(f"{Member} is already muted.")
+      return await ctx.send(f"{member} is already muted.")
     dur = datetime.datetime.now(tz=datetime.timezone.utc) + datetime.timedelta(seconds=duration)
     reason_log = reason or f"{ctx.author}: No reason provided."
     await member.edit(timeout_until=dur, reason=reason_log)
