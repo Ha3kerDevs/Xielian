@@ -33,7 +33,7 @@ class Moderation(commands.Cog, name="Moderation"):
     if "-s" in reason:
       return await ctx.message.delete()
     else:
-      await ctx.send(embed=embed)
+      return await ctx.send(embed=embed)
 
   @commands.command(
     name="unmute",
