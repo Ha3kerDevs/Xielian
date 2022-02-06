@@ -15,8 +15,7 @@ class Moderation(commands.Cog, name="Moderation"):
     help="Mute members lol.",
     usage="<member>, <duration>, [reason]"
   )
-  @commands.has_permissions(moderate_members=True)
-  #@commands.bot_has_permissions(moderate_members=True)
+  @commands.is_owner()
   async def _mute(self, ctx, member: discord.Member, duration: TimeConverter, *, reason = None):
     if duration > 2419200 or duration < 60:
       return await ctx.send("Mute time must be over 1 minute and under 28 days.")
