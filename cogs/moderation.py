@@ -27,7 +27,7 @@ class Moderation(commands.Cog, name="Moderation"):
     await member.edit(timeout_until=dur, reason=reason_log)
     embed = discord.Embed(
       title="Muted",
-      description=f"<:checkmark:815484488757805076> {member.mention} Has been muted until {discord.utils.format_dt(dur)}.\nReason: {reason}",
+      description=f"<:checkmark:815484488757805076> {member.mention} Has been muted until {discord.utils.format_dt(dur)}.\nReason: ***{reason}***",
       color=0x9b7474
       )
     if "-s" in reason:
@@ -45,7 +45,7 @@ class Moderation(commands.Cog, name="Moderation"):
   async def _unmute(self, ctx, member: discord.Member, *, reason = None):
     reason = reason or f"{ctx.author}: No reason provided."
     await member.edit(timeout_until=None, reason=reason)
-    await ctx.send(f"Unmuted {member}.")
+    await ctx.send(f"Unmuted **{member}**.")
 
 def setup(bot: StellaricBot):
   bot.add_cog(Moderation(bot))
