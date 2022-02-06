@@ -56,10 +56,9 @@ class TestingQ(commands.Cog, command_attrs=dict(hidden=True), name="Testing"):
     userfetch = user or ctx.author
     e = discord.Embed(title="User info", color=0x9b7474)
 
-    user = await self.bot.fetch_user(userfetch.id)
+    #user = await self.bot.fetch_user(userfetch.id)
 
     e.add_field(name='ID', value=userfetch.id, inline=False)
-    e.add_field(name='Joined', value=f"{utils.timestamp(user.joined_at, 'f')}", inline=False)
     e.add_field(name='Created', value=f"{utils.timestamp(user.created_at, 'f')}", inline=False)
     e.set_thumbnail(url=user.display_avatar.url)
 
