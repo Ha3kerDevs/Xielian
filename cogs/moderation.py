@@ -10,16 +10,38 @@ class Moderation(commands.Cog, name="Moderation"):
   def __init__(self, bot: StellaricBot):
     self.bot = bot
 
-
   @commands.command(
     name="mute",
-    help="Check your or a person's server information.",
+    help="Mute members lol.",
     usage="<member>, <duration>, [reason]"
   )
   @commands.has_permissions(moderate_members=True)
   @commands.bot_has_permissions(moderate_members=True)
-  async def _mute(self, ctx, member: discord.Member, duration: TimeConverter, reason = None):
-    pass
+  async def _mute(self, ctx, member: discord.Member, duration: TimeConverter, *, reason = None):
+    if duration > 2419200 or duration < 60:
+      return await ctx.send("Mute time must be over 1 minute and under 28 days.")
+    if member.timed_out:
+      return await ctx.send(f"{Member} is already muted.")
+    dur = datetime.datetime.now(tz=datetime.timezone.utc) + datetime.timedelta(seconds=duration)
+    reason = reason or "No reason provided."
+    await member.edit(timeout_until=dur, reason=reason)
+    embed = discord.Embed(
+      title="Muted",
+      description=f"{member.mention} Has been muted until {discord.utils.format_dt(dur)}.\nReason: {reason}",
+      )
+    await ctx.send(embed=embed)
+
+  @commands.command(
+    name="unmute",
+    help="unmute members lol.",
+    usage="<member>"
+  )
+  @commands.has_permissions(moderate_members=True)
+  @commands.bot_has_permissions(moderate_members=True)
+  async def _unmute(self, ctx, member: discord.Member, duration: TimeConverter, *, reason = None):
+    reason = reason or f"{ctx.author}: No reason provided."
+    await member.edit(timeout_until=None, reason=reason)
+    await ctx.send(f"Unmuted {member}.")
 
 def setup(bot: StellaricBot):
   bot.add_cog(Moderation(bot))
