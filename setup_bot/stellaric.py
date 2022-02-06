@@ -44,7 +44,8 @@ class StellaricBot(commands.Bot):
             "cogs.utility",
             "cogs.testing",
             "cogs.fun",
-            "cogs.info"
+            "cogs.info",
+            "cogs.moderation"
         ]
         self.loop.create_task(self.load_extensions())
         self.session = aiohttp.ClientSession()
