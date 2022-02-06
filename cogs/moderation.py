@@ -50,7 +50,7 @@ class Moderation(commands.Cog, name="Moderation"):
   @commands.command(
     name="clear",
     aliases=['purge'],
-    description="Clears X messages."
+    help="Clears X messages."
   )
   @commands.has_permissions(manage_messages=True)
   @commands.bot_has_permissions(manage_messages=True)
