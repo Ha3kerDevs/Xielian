@@ -16,7 +16,8 @@ intents = discord.Intents(
     members=True,
     reactions=True,
     webhooks=True,
-    voice_states=True
+    voice_states=True,
+    presences=True
     )
 
 async def get_prefix(bot: "Stellaric", message: discord.Message):
