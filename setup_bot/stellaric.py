@@ -45,7 +45,7 @@ class StellaricBot(commands.Bot):
             "cogs.testing",
             "cogs.fun",
             "cogs.info",
-            "cogs.moderation"
+            "cogs.moderation",
             "jishaku"
         ]
         self.loop.create_task(self.load_extensions())
