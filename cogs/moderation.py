@@ -30,7 +30,7 @@ class Moderation(commands.Cog, name="Moderation"):
       description=f"<:checkmark:815484488757805076> {member.mention} Has been muted until {discord.utils.format_dt(dur)}.\nReason: ***{reason_log}***",
       color=0x9b7474
       )
-    if "-s" in reason:
+    if "-s" in reason_log:
       return await ctx.message.delete()
     else:
       await ctx.message.delete()
