@@ -27,14 +27,15 @@ class Moderation(commands.Cog, name="Moderation"):
     await member.edit(timeout_until=dur, reason=reason_log)
     embed = discord.Embed(
       title="Muted",
-      description=f"<:checkmark:815484488757805076> {member.mention} Has been muted until {discord.utils.format_dt(dur)}.\nReason: ***{reason}***",
+      description=f"<:checkmark:815484488757805076> {member.mention} Has been muted until {discord.utils.format_dt(dur)}.\nReason: ***{reason_log}***",
       color=0x9b7474
       )
     if "-s" in reason:
       return await ctx.message.delete()
     else:
+      await ctx.message.delete()
       await ctx.send(embed=embed)
-      await member.send(f"You have been muted from Stellaric until {discord.utils.format_dt(dur)}. Reason: **{reason}**")
+      await member.send(f"You have been muted from Stellaric until {discord.utils.format_dt(dur)}. Reason: **{reason_log}**")
       return
 
   @commands.command(
