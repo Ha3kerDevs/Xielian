@@ -33,7 +33,9 @@ class Moderation(commands.Cog, name="Moderation"):
     if "-s" in reason:
       return await ctx.message.delete()
     else:
-      return await ctx.send(embed=embed)
+      await ctx.send(embed=embed)
+      await member.send(f"You have been muted from Stellaric until {discord.utils.format_dt(dur)}. Reason: **{reason}**")
+      return
 
   @commands.command(
     name="unmute",
