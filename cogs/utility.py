@@ -118,7 +118,7 @@ class Utility(commands.Cog, name="Utility"):
       return await ctx.send("Slowmode must be under 6 hours.")
     then_send = sec_converter(seconds)
     await ctx.channel.edit(slowmode_delay=seconds)
-    await ctx.send(f"Set the slowmode delay in this channel to {then_send} seconds!")
+    await ctx.send(f"Set the slowmode delay in this channel to {then_send}!")
 
   @commands.cooldown(1, 6, commands.BucketType.user)
   @commands.guild_only()
