@@ -8,6 +8,7 @@ from cogs.utils import utils as StellaricUtils
 from cogs.utils import checks
 from discord.utils import get
 from setup_bot import StellaricBot
+from setup_bot.converters import TimeConverter
 
 # 793679885285326890 = Developer
 # 797687618007466015 = Moderator
@@ -112,9 +113,12 @@ class Utility(commands.Cog, name="Utility"):
     usage='<seconds>',
     aliases=['sm']
   )
-  async def _slowmode(self, ctx, seconds: int):
+  async def _slowmode(self, ctx, seconds: TimeConverter):
+    if seconds > 3600:
+      return await ctx.send("Slowmode must be under 6 hours.")
+    then_send = sec_converter(seconds)
     await ctx.channel.edit(slowmode_delay=seconds)
-    await ctx.send(f"Set the slowmode delay in this channel to {seconds} seconds!")
+    await ctx.send(f"Set the slowmode delay in this channel to {then_send} seconds!")
 
   @commands.cooldown(1, 6, commands.BucketType.user)
   @commands.guild_only()
