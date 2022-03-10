@@ -58,7 +58,7 @@ class Moderation(commands.Cog, name="Moderation"):
   )
   @commands.has_permissions(manage_messages=True)
   @commands.bot_has_permissions(manage_messages=True)
-  @commands.cooldown(1, 5, commands.BucketType.user)
+  @commands.cooldown(1, 2, commands.BucketType.user)
   async def _clear(self, ctx, num: int, target: discord.Member=None):
     if num > 500 or num < 0:
       return await ctx.send("Invalid amount. Maximum is 500.")
