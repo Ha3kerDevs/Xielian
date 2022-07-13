@@ -30,7 +30,7 @@ class TestingQ(commands.Cog, command_attrs=dict(hidden=True), name="Testing"):
   async def serverlist(self, ctx):
     servers = list(self.bot.guilds)
     await ctx.send(f"Connected on {str(len(servers))} servers:")
-    await ctx.send('\n'.join(guild.name for guild in guilds))
+    await ctx.send('\n'.join(guild.name for guild in self.bot.guilds))
   
   @commands.is_owner()
   @commands.guild_only()
